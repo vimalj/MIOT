@@ -1,0 +1,16 @@
+
+adfruit arduino tutorial
+
+https://learn.adafruit.com/lesson-0-getting-started
+
+arduino board and ide tutorial
+
+https://learn.adafruit.com/series/ladyadas-learn-arduino
+
+
+
+
+Sparkfun led resources
+https://learn.sparkfun.com/tutorials/light-emitting-diodes-leds
+https://learn.sparkfun.com/tutorials/diodes/introduction
+http://led.linear1.org/1led.wiz

@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <windows.h>
+ 
+int main (void)
+{
+ 
+    int BTNpress = 0; //To mimic press of button, a 1 = button has been pressed.
+    int LEDStat = 0;  //LED is initialy off(0)
+ 
+while (TRUE) //loop to scan the button state
+{
+     puts( "Enter 1 to press the button");
+     scanf( "%d", &BTNpress); 
+ 
+     if (BTNpress  && !LEDStat) //if button is pressed and the LED is OFF then turn LED ON
+     {
+         printf("The button has been pressed\n"); 
+         printf("LED is ON\n");
+         LEDStat = 1; //Change LEDStat to 1 to inidica the LED is ON.
+     }
+ 
+     puts( "Enter 1 to press the button");
+     scanf( "%d", &BTNpress); 
+ 
+     if (BTNpress && LEDStat)   //if button is pressed and the led is ON then turn LED OFF
+     {
+         printf("The button has been pressed\n"); 
+         printf("LED is OFF\n");
+         LEDStat = 0; //Change LEDStat to 0 to inidica the LED is OFF.
+ 
+      }
+     }
+ 
+system("PAUSE");
+return 0;
+}

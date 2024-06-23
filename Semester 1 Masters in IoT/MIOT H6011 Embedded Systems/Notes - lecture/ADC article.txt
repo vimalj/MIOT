@@ -1,0 +1,5 @@
+https://www.hardwaresecrets.com/how-analog-to-digital-converter-adc-works/
+
+http://maxembedded.com/2011/06/the-adc-of-the-avr/
+
+

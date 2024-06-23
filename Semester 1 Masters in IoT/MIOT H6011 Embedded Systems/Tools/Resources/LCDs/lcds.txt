@@ -1,0 +1,33 @@
+simulator
+
+http://www.dinceraydin.com/djlcdsim/djlcdsim.html
+
+
+LCD Lab Exercises (prep for LCD CA)
+Interfacing an LCD
+
+In all the following step refer carefully to the LCD article on moodle for the pin-out of the LCD.  Please ensure you do not confuse your power and ground pins.
+
+You can also use the LCD simulator linked from moodle to test sending commands and data to the LCD.
+
+To help with this PLEASE use the RED lines on your breadboard for power and the BLUE lines for ground.
+
+
+
+Exercise 1: Connecting power ground and contrast.
+
+Connect the power and ground rails to the arduino power and ground.
+Connect the Vss and Vcc pins of the LCD as shown.
+Connect the variable resistor (pot) as shown.
+Here is a diagram of the setup required.
+
+You can now test that your LCD is powering up correctly etc by twisting the pot left and right.
+What you will see is the first row of characters go dark and then light as you twist.
+What you are doing here is adjusting the contrast of the display.
+To correctly adjust the contrast twist the pot until all the character blocks go black.
+Next slowly twist back in the opposite direction until the black blocks just disappear.
+
+Exercise 2: Experiment with the Simulator.
+
+Follow the link to the LCD Simulator on moodle and experiment with the interface until you understand how it works.  Read the LCA Article 1 document to gain a better understanding or look at one of the many online tutorials.
+Last modified: Monday, 2 October 2017, 2:37 PM

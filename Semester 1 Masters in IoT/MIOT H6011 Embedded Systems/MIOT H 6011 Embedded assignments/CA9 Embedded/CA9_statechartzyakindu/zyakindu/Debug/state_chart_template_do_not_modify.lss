@@ -1,0 +1,1720 @@
+
+state_chart_template_do_not_modify.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000000  00800100  000007a8  0000083c  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         000007a8  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          0000013b  00800100  00800100  0000083c  2**0
+                  ALLOC
+  3 .stab         0000186c  00000000  00000000  0000083c  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  4 .stabstr      00001dff  00000000  00000000  000020a8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .comment      00000027  00000000  00000000  00003ea7  2**0
+                  CONTENTS, READONLY
+  6 .debug_aranges 00000040  00000000  00000000  00003ed0  2**3
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_info   0000072e  00000000  00000000  00003f10  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_abbrev 000005ca  00000000  00000000  0000463e  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_line   000000f2  00000000  00000000  00004c08  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    0000020b  00000000  00000000  00004cfa  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 34 00 	jmp	0x68	; 0x68 <__ctors_end>
+   4:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+   8:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+   c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  10:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  14:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  18:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  1c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  20:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  24:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  28:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  2c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  30:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  34:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  38:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  3c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  40:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  44:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  48:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  4c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  50:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  54:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  58:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  5c:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  60:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+  64:	0c 94 46 00 	jmp	0x8c	; 0x8c <__bad_interrupt>
+
+00000068 <__ctors_end>:
+  68:	11 24       	eor	r1, r1
+  6a:	1f be       	out	0x3f, r1	; 63
+  6c:	cf ef       	ldi	r28, 0xFF	; 255
+  6e:	d8 e0       	ldi	r29, 0x08	; 8
+  70:	de bf       	out	0x3e, r29	; 62
+  72:	cd bf       	out	0x3d, r28	; 61
+
+00000074 <__do_clear_bss>:
+  74:	12 e0       	ldi	r17, 0x02	; 2
+  76:	a0 e0       	ldi	r26, 0x00	; 0
+  78:	b1 e0       	ldi	r27, 0x01	; 1
+  7a:	01 c0       	rjmp	.+2      	; 0x7e <.do_clear_bss_start>
+
+0000007c <.do_clear_bss_loop>:
+  7c:	1d 92       	st	X+, r1
+
+0000007e <.do_clear_bss_start>:
+  7e:	ab 33       	cpi	r26, 0x3B	; 59
+  80:	b1 07       	cpc	r27, r17
+  82:	e1 f7       	brne	.-8      	; 0x7c <.do_clear_bss_loop>
+  84:	0e 94 b0 03 	call	0x760	; 0x760 <main>
+  88:	0c 94 d2 03 	jmp	0x7a4	; 0x7a4 <_exit>
+
+0000008c <__bad_interrupt>:
+  8c:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000090 <state_chart_exseq__region0_Flashing_r1>:
+/* Default exit sequence for region r1 */
+static void state_chart_exseq__region0_Flashing_r1(State_chart* handle)
+{
+	/* Default exit sequence for region r1 */
+	/* Handle exit of all possible states (of state_chart._region0.Flashing.r1) at position 0... */
+	switch(handle->stateConfVector[ 0 ])
+  90:	fc 01       	movw	r30, r24
+  92:	20 81       	ld	r18, Z
+  94:	24 30       	cpi	r18, 0x04	; 4
+  96:	61 f0       	breq	.+24     	; 0xb0 <state_chart_exseq__region0_Flashing_r1+0x20>
+  98:	25 30       	cpi	r18, 0x05	; 5
+  9a:	49 f4       	brne	.+18     	; 0xae <state_chart_exseq__region0_Flashing_r1+0x1e>
+
+/* Default exit sequence for state flashing_on */
+static void state_chart_exseq__region0_Flashing_r1_flashing_on(State_chart* handle)
+{
+	/* Default exit sequence for state flashing_on */
+	handle->stateConfVector[0] = State_chart_last_state;
+  9c:	fc 01       	movw	r30, r24
+  9e:	10 82       	st	Z, r1
+	handle->stateConfVectorPosition = 0;
+  a0:	12 82       	std	Z+2, r1	; 0x02
+  a2:	11 82       	std	Z+1, r1	; 0x01
+
+/* Exit action for state 'flashing_on'. */
+static void state_chart_exact__region0_Flashing_r1_flashing_on(State_chart* handle)
+{
+	/* Exit action for state 'flashing_on'. */
+	state_chart_unsetTimer(handle, (sc_eventid) &(handle->timeEvents.state_chart__region0_Flashing_r1_flashing_on_tev0_raised) );		
+  a4:	bc 01       	movw	r22, r24
+  a6:	6a 5f       	subi	r22, 0xFA	; 250
+  a8:	7f 4f       	sbci	r23, 0xFF	; 255
+  aa:	0c 94 4a 03 	jmp	0x694	; 0x694 <state_chart_unsetTimer>
+  ae:	08 95       	ret
+
+/* Default exit sequence for state flashing_off */
+static void state_chart_exseq__region0_Flashing_r1_flashing_off(State_chart* handle)
+{
+	/* Default exit sequence for state flashing_off */
+	handle->stateConfVector[0] = State_chart_last_state;
+  b0:	fc 01       	movw	r30, r24
+  b2:	10 82       	st	Z, r1
+	handle->stateConfVectorPosition = 0;
+  b4:	12 82       	std	Z+2, r1	; 0x02
+  b6:	11 82       	std	Z+1, r1	; 0x01
+
+/* Exit action for state 'flashing_off'. */
+static void state_chart_exact__region0_Flashing_r1_flashing_off(State_chart* handle)
+{
+	/* Exit action for state 'flashing_off'. */
+	state_chart_unsetTimer(handle, (sc_eventid) &(handle->timeEvents.state_chart__region0_Flashing_r1_flashing_off_tev0_raised) );		
+  b8:	bc 01       	movw	r22, r24
+  ba:	6b 5f       	subi	r22, 0xFB	; 251
+  bc:	7f 4f       	sbci	r23, 0xFF	; 255
+  be:	0c 94 4a 03 	jmp	0x694	; 0x694 <state_chart_unsetTimer>
+
+000000c2 <state_chart_enact__region0_Flashing_r1_flashing_on>:
+	state_chartIface_setLight(handle, bool_false);
+}
+
+/* Entry action for state 'flashing_on'. */
+static void state_chart_enact__region0_Flashing_r1_flashing_on(State_chart* handle)
+{
+  c2:	0f 93       	push	r16
+  c4:	cf 93       	push	r28
+  c6:	df 93       	push	r29
+  c8:	ec 01       	movw	r28, r24
+	/* Entry action for state 'flashing_on'. */
+	state_chart_setTimer(handle, (sc_eventid) &(handle->timeEvents.state_chart__region0_Flashing_r1_flashing_on_tev0_raised) , 500, bool_false);
+  ca:	bc 01       	movw	r22, r24
+  cc:	6a 5f       	subi	r22, 0xFA	; 250
+  ce:	7f 4f       	sbci	r23, 0xFF	; 255
+  d0:	00 e0       	ldi	r16, 0x00	; 0
+  d2:	24 ef       	ldi	r18, 0xF4	; 244
+  d4:	31 e0       	ldi	r19, 0x01	; 1
+  d6:	40 e0       	ldi	r20, 0x00	; 0
+  d8:	50 e0       	ldi	r21, 0x00	; 0
+  da:	0e 94 f0 02 	call	0x5e0	; 0x5e0 <state_chart_setTimer>
+	state_chartIface_setLight(handle, bool_true);
+  de:	61 e0       	ldi	r22, 0x01	; 1
+  e0:	ce 01       	movw	r24, r28
+}
+  e2:	df 91       	pop	r29
+  e4:	cf 91       	pop	r28
+  e6:	0f 91       	pop	r16
+/* Entry action for state 'flashing_on'. */
+static void state_chart_enact__region0_Flashing_r1_flashing_on(State_chart* handle)
+{
+	/* Entry action for state 'flashing_on'. */
+	state_chart_setTimer(handle, (sc_eventid) &(handle->timeEvents.state_chart__region0_Flashing_r1_flashing_on_tev0_raised) , 500, bool_false);
+	state_chartIface_setLight(handle, bool_true);
+  e8:	0c 94 cc 03 	jmp	0x798	; 0x798 <state_chartIface_setLight>
+
+000000ec <state_chart_init>:
+static void state_chart_clearInEvents(State_chart* handle);
+static void state_chart_clearOutEvents(State_chart* handle);
+
+
+void state_chart_init(State_chart* handle)
+{
+  ec:	fc 01       	movw	r30, r24
+		sc_integer i;
+	
+		for (i = 0; i < STATE_CHART_MAX_ORTHOGONAL_STATES; ++i)
+		{
+			handle->stateConfVector[i] = State_chart_last_state;
+  ee:	10 82       	st	Z, r1
+		}
+		
+		
+		handle->stateConfVectorPosition = 0;
+  f0:	12 82       	std	Z+2, r1	; 0x02
+  f2:	11 82       	std	Z+1, r1	; 0x01
+   return bool_false;
+}
+
+static void state_chart_clearInEvents(State_chart* handle)
+{
+	handle->iface.Key_Off_raised = bool_false;
+  f4:	13 82       	std	Z+3, r1	; 0x03
+	handle->iface.Key_On_raised = bool_false;
+  f6:	14 82       	std	Z+4, r1	; 0x04
+	handle->timeEvents.state_chart__region0_Flashing_r1_flashing_off_tev0_raised = bool_false;
+  f8:	15 82       	std	Z+5, r1	; 0x05
+	handle->timeEvents.state_chart__region0_Flashing_r1_flashing_on_tev0_raised = bool_false;
+  fa:	16 82       	std	Z+6, r1	; 0x06
+  fc:	08 95       	ret
+
+000000fe <state_chart_enter>:
+		state_chart_clearOutEvents(handle);
+	
+}
+
+void state_chart_enter(State_chart* handle)
+{
+  fe:	cf 93       	push	r28
+ 100:	df 93       	push	r29
+ 102:	ec 01       	movw	r28, r24
+
+/* Entry action for state 'Off'. */
+static void state_chart_enact__region0_Off(State_chart* handle)
+{
+	/* Entry action for state 'Off'. */
+	state_chartIface_setLight(handle, bool_false);
+ 104:	60 e0       	ldi	r22, 0x00	; 0
+ 106:	0e 94 cc 03 	call	0x798	; 0x798 <state_chartIface_setLight>
+/* 'default' enter sequence for state Off */
+static void state_chart_enseq__region0_Off_default(State_chart* handle)
+{
+	/* 'default' enter sequence for state Off */
+	state_chart_enact__region0_Off(handle);
+	handle->stateConfVector[0] = State_chart__region0_Off;
+ 10a:	81 e0       	ldi	r24, 0x01	; 1
+ 10c:	88 83       	st	Y, r24
+	handle->stateConfVectorPosition = 0;
+ 10e:	1a 82       	std	Y+2, r1	; 0x02
+ 110:	19 82       	std	Y+1, r1	; 0x01
+
+void state_chart_enter(State_chart* handle)
+{
+	/* Default enter sequence for statechart state_chart */
+	state_chart_enseq__region0_default(handle);
+}
+ 112:	df 91       	pop	r29
+ 114:	cf 91       	pop	r28
+ 116:	08 95       	ret
+
+00000118 <state_chart_exit>:
+/* Default exit sequence for region  */
+static void state_chart_exseq__region0(State_chart* handle)
+{
+	/* Default exit sequence for region  */
+	/* Handle exit of all possible states (of state_chart._region0) at position 0... */
+	switch(handle->stateConfVector[ 0 ])
+ 118:	fc 01       	movw	r30, r24
+ 11a:	20 81       	ld	r18, Z
+ 11c:	22 30       	cpi	r18, 0x02	; 2
+ 11e:	c9 f0       	breq	.+50     	; 0x152 <state_chart_exit+0x3a>
+ 120:	b0 f0       	brcs	.+44     	; 0x14e <state_chart_exit+0x36>
+ 122:	24 30       	cpi	r18, 0x04	; 4
+ 124:	59 f0       	breq	.+22     	; 0x13c <state_chart_exit+0x24>
+ 126:	25 30       	cpi	r18, 0x05	; 5
+ 128:	d1 f4       	brne	.+52     	; 0x15e <state_chart_exit+0x46>
+
+/* Default exit sequence for state flashing_on */
+static void state_chart_exseq__region0_Flashing_r1_flashing_on(State_chart* handle)
+{
+	/* Default exit sequence for state flashing_on */
+	handle->stateConfVector[0] = State_chart_last_state;
+ 12a:	fc 01       	movw	r30, r24
+ 12c:	10 82       	st	Z, r1
+	handle->stateConfVectorPosition = 0;
+ 12e:	12 82       	std	Z+2, r1	; 0x02
+ 130:	11 82       	std	Z+1, r1	; 0x01
+
+/* Exit action for state 'flashing_on'. */
+static void state_chart_exact__region0_Flashing_r1_flashing_on(State_chart* handle)
+{
+	/* Exit action for state 'flashing_on'. */
+	state_chart_unsetTimer(handle, (sc_eventid) &(handle->timeEvents.state_chart__region0_Flashing_r1_flashing_on_tev0_raised) );		
+ 132:	bc 01       	movw	r22, r24
+ 134:	6a 5f       	subi	r22, 0xFA	; 250
+ 136:	7f 4f       	sbci	r23, 0xFF	; 255
+ 138:	0c 94 4a 03 	jmp	0x694	; 0x694 <state_chart_unsetTimer>
+
+/* Default exit sequence for state flashing_off */
+static void state_chart_exseq__region0_Flashing_r1_flashing_off(State_chart* handle)
+{
+	/* Default exit sequence for state flashing_off */
+	handle->stateConfVector[0] = State_chart_last_state;
+ 13c:	fc 01       	movw	r30, r24
+ 13e:	10 82       	st	Z, r1
+	handle->stateConfVectorPosition = 0;
+ 140:	12 82       	std	Z+2, r1	; 0x02
+ 142:	11 82       	std	Z+1, r1	; 0x01
+
+/* Exit action for state 'flashing_off'. */
+static void state_chart_exact__region0_Flashing_r1_flashing_off(State_chart* handle)
+{
+	/* Exit action for state 'flashing_off'. */
+	state_chart_unsetTimer(handle, (sc_eventid) &(handle->timeEvents.state_chart__region0_Flashing_r1_flashing_off_tev0_raised) );		
+ 144:	bc 01       	movw	r22, r24
+ 146:	6b 5f       	subi	r22, 0xFB	; 251
+ 148:	7f 4f       	sbci	r23, 0xFF	; 255
+ 14a:	0c 94 4a 03 	jmp	0x694	; 0x694 <state_chart_unsetTimer>
+/* Default exit sequence for region  */
+static void state_chart_exseq__region0(State_chart* handle)
+{
+	/* Default exit sequence for region  */
+	/* Handle exit of all possible states (of state_chart._region0) at position 0... */
+	switch(handle->stateConfVector[ 0 ])
+ 14e:	21 30       	cpi	r18, 0x01	; 1
+ 150:	29 f4       	brne	.+10     	; 0x15c <state_chart_exit+0x44>
+
+/* Default exit sequence for state On */
+static void state_chart_exseq__region0_On(State_chart* handle)
+{
+	/* Default exit sequence for state On */
+	handle->stateConfVector[0] = State_chart_last_state;
+ 152:	fc 01       	movw	r30, r24
+ 154:	10 82       	st	Z, r1
+	handle->stateConfVectorPosition = 0;
+ 156:	12 82       	std	Z+2, r1	; 0x02
+ 158:	11 82       	std	Z+1, r1	; 0x01
+ 15a:	08 95       	ret
+ 15c:	08 95       	ret
+ 15e:	08 95       	ret
+
+00000160 <state_chart_isActive>:
+	/* Default exit sequence for statechart state_chart */
+	state_chart_exseq__region0(handle);
+}
+
+sc_boolean state_chart_isActive(const State_chart* handle)
+{
+ 160:	fc 01       	movw	r30, r24
+	sc_boolean result = bool_false;
+	int i;
+	
+	for(i = 0; i < STATE_CHART_MAX_ORTHOGONAL_STATES; i++)
+	{
+		result = result || handle->stateConfVector[i] != State_chart_last_state;
+ 162:	81 e0       	ldi	r24, 0x01	; 1
+ 164:	90 81       	ld	r25, Z
+ 166:	91 11       	cpse	r25, r1
+ 168:	01 c0       	rjmp	.+2      	; 0x16c <state_chart_isActive+0xc>
+ 16a:	80 e0       	ldi	r24, 0x00	; 0
+	}
+	
+	return result;
+}
+ 16c:	08 95       	ret
+
+0000016e <state_chart_isFinal>:
+ * Always returns 'false' since this state machine can never become final.
+ */
+sc_boolean state_chart_isFinal(const State_chart* handle)
+{
+   return bool_false;
+}
+ 16e:	80 e0       	ldi	r24, 0x00	; 0
+ 170:	08 95       	ret
+
+00000172 <state_chart_runCycle>:
+static void state_chart_clearOutEvents(State_chart* handle)
+{
+}
+
+void state_chart_runCycle(State_chart* handle)
+{
+ 172:	0f 93       	push	r16
+ 174:	cf 93       	push	r28
+ 176:	df 93       	push	r29
+ 178:	ec 01       	movw	r28, r24
+	
+	state_chart_clearOutEvents(handle);
+	for (handle->stateConfVectorPosition = 0;
+ 17a:	1a 82       	std	Y+2, r1	; 0x02
+ 17c:	19 82       	std	Y+1, r1	; 0x01
+ 17e:	28 81       	ld	r18, Y
+		handle->stateConfVectorPosition < STATE_CHART_MAX_ORTHOGONAL_STATES;
+		handle->stateConfVectorPosition++)
+		{
+			
+		switch (handle->stateConfVector[handle->stateConfVectorPosition])
+ 180:	22 30       	cpi	r18, 0x02	; 2
+ 182:	a9 f0       	breq	.+42     	; 0x1ae <state_chart_runCycle+0x3c>
+ 184:	23 30       	cpi	r18, 0x03	; 3
+ 186:	10 f1       	brcs	.+68     	; 0x1cc <state_chart_runCycle+0x5a>
+ 188:	24 30       	cpi	r18, 0x04	; 4
+ 18a:	d1 f1       	breq	.+116    	; 0x200 <state_chart_runCycle+0x8e>
+ 18c:	25 30       	cpi	r18, 0x05	; 5
+ 18e:	31 f4       	brne	.+12     	; 0x19c <state_chart_runCycle+0x2a>
+
+/* The reactions of state flashing_on. */
+static void state_chart_react__region0_Flashing_r1_flashing_on(State_chart* handle)
+{
+	/* The reactions of state flashing_on. */
+	if (state_chart_check__region0_Flashing_tr0_tr0(handle) == bool_true)
+ 190:	8b 81       	ldd	r24, Y+3	; 0x03
+ 192:	81 11       	cpse	r24, r1
+ 194:	4a c0       	rjmp	.+148    	; 0x22a <state_chart_runCycle+0xb8>
+	{ 
+		state_chart_effect__region0_Flashing_tr0(handle);
+	}  else
+	{
+		if (state_chart_check__region0_Flashing_r1_flashing_on_tr0_tr0(handle) == bool_true)
+ 196:	8e 81       	ldd	r24, Y+6	; 0x06
+ 198:	81 11       	cpse	r24, r1
+ 19a:	51 c0       	rjmp	.+162    	; 0x23e <state_chart_runCycle+0xcc>
+ 19c:	89 81       	ldd	r24, Y+1	; 0x01
+ 19e:	9a 81       	ldd	r25, Y+2	; 0x02
+ 1a0:	01 96       	adiw	r24, 0x01	; 1
+{
+	
+	state_chart_clearOutEvents(handle);
+	for (handle->stateConfVectorPosition = 0;
+		handle->stateConfVectorPosition < STATE_CHART_MAX_ORTHOGONAL_STATES;
+		handle->stateConfVectorPosition++)
+ 1a2:	9a 83       	std	Y+2, r25	; 0x02
+ 1a4:	89 83       	std	Y+1, r24	; 0x01
+
+void state_chart_runCycle(State_chart* handle)
+{
+	
+	state_chart_clearOutEvents(handle);
+	for (handle->stateConfVectorPosition = 0;
+ 1a6:	89 2b       	or	r24, r25
+ 1a8:	19 f5       	brne	.+70     	; 0x1f0 <state_chart_runCycle+0x7e>
+		handle->stateConfVectorPosition < STATE_CHART_MAX_ORTHOGONAL_STATES;
+		handle->stateConfVectorPosition++)
+		{
+			
+		switch (handle->stateConfVector[handle->stateConfVectorPosition])
+ 1aa:	22 30       	cpi	r18, 0x02	; 2
+ 1ac:	59 f7       	brne	.-42     	; 0x184 <state_chart_runCycle+0x12>
+
+/* The reactions of state On. */
+static void state_chart_react__region0_On(State_chart* handle)
+{
+	/* The reactions of state On. */
+	if (state_chart_check__region0_On_tr0_tr0(handle) == bool_true)
+ 1ae:	8b 81       	ldd	r24, Y+3	; 0x03
+ 1b0:	81 11       	cpse	r24, r1
+ 1b2:	60 c0       	rjmp	.+192    	; 0x274 <state_chart_runCycle+0x102>
+	{ 
+		state_chart_effect__region0_On_tr0(handle);
+	}  else
+	{
+		if (state_chart_check__region0_On_tr1_tr1(handle) == bool_true)
+ 1b4:	8c 81       	ldd	r24, Y+4	; 0x04
+ 1b6:	88 23       	and	r24, r24
+ 1b8:	89 f3       	breq	.-30     	; 0x19c <state_chart_runCycle+0x2a>
+
+/* Default exit sequence for state On */
+static void state_chart_exseq__region0_On(State_chart* handle)
+{
+	/* Default exit sequence for state On */
+	handle->stateConfVector[0] = State_chart_last_state;
+ 1ba:	18 82       	st	Y, r1
+	handle->stateConfVectorPosition = 0;
+ 1bc:	1a 82       	std	Y+2, r1	; 0x02
+ 1be:	19 82       	std	Y+1, r1	; 0x01
+
+/* 'default' enter sequence for state flashing_on */
+static void state_chart_enseq__region0_Flashing_r1_flashing_on_default(State_chart* handle)
+{
+	/* 'default' enter sequence for state flashing_on */
+	state_chart_enact__region0_Flashing_r1_flashing_on(handle);
+ 1c0:	ce 01       	movw	r24, r28
+ 1c2:	0e 94 61 00 	call	0xc2	; 0xc2 <state_chart_enact__region0_Flashing_r1_flashing_on>
+	handle->stateConfVector[0] = State_chart__region0_Flashing_r1_flashing_on;
+ 1c6:	85 e0       	ldi	r24, 0x05	; 5
+ 1c8:	88 83       	st	Y, r24
+ 1ca:	0e c0       	rjmp	.+28     	; 0x1e8 <state_chart_runCycle+0x76>
+	for (handle->stateConfVectorPosition = 0;
+		handle->stateConfVectorPosition < STATE_CHART_MAX_ORTHOGONAL_STATES;
+		handle->stateConfVectorPosition++)
+		{
+			
+		switch (handle->stateConfVector[handle->stateConfVectorPosition])
+ 1cc:	21 30       	cpi	r18, 0x01	; 1
+ 1ce:	31 f7       	brne	.-52     	; 0x19c <state_chart_runCycle+0x2a>
+
+/* The reactions of state Off. */
+static void state_chart_react__region0_Off(State_chart* handle)
+{
+	/* The reactions of state Off. */
+	if (state_chart_check__region0_Off_tr0_tr0(handle) == bool_true)
+ 1d0:	8c 81       	ldd	r24, Y+4	; 0x04
+ 1d2:	88 23       	and	r24, r24
+ 1d4:	19 f3       	breq	.-58     	; 0x19c <state_chart_runCycle+0x2a>
+
+/* Default exit sequence for state Off */
+static void state_chart_exseq__region0_Off(State_chart* handle)
+{
+	/* Default exit sequence for state Off */
+	handle->stateConfVector[0] = State_chart_last_state;
+ 1d6:	18 82       	st	Y, r1
+	handle->stateConfVectorPosition = 0;
+ 1d8:	1a 82       	std	Y+2, r1	; 0x02
+ 1da:	19 82       	std	Y+1, r1	; 0x01
+
+/* Entry action for state 'On'. */
+static void state_chart_enact__region0_On(State_chart* handle)
+{
+	/* Entry action for state 'On'. */
+	state_chartIface_setLight(handle, bool_true);
+ 1dc:	61 e0       	ldi	r22, 0x01	; 1
+ 1de:	ce 01       	movw	r24, r28
+ 1e0:	0e 94 cc 03 	call	0x798	; 0x798 <state_chartIface_setLight>
+/* 'default' enter sequence for state On */
+static void state_chart_enseq__region0_On_default(State_chart* handle)
+{
+	/* 'default' enter sequence for state On */
+	state_chart_enact__region0_On(handle);
+	handle->stateConfVector[0] = State_chart__region0_On;
+ 1e4:	82 e0       	ldi	r24, 0x02	; 2
+ 1e6:	88 83       	st	Y, r24
+{
+	
+	state_chart_clearOutEvents(handle);
+	for (handle->stateConfVectorPosition = 0;
+		handle->stateConfVectorPosition < STATE_CHART_MAX_ORTHOGONAL_STATES;
+		handle->stateConfVectorPosition++)
+ 1e8:	81 e0       	ldi	r24, 0x01	; 1
+ 1ea:	90 e0       	ldi	r25, 0x00	; 0
+ 1ec:	9a 83       	std	Y+2, r25	; 0x02
+ 1ee:	89 83       	std	Y+1, r24	; 0x01
+   return bool_false;
+}
+
+static void state_chart_clearInEvents(State_chart* handle)
+{
+	handle->iface.Key_Off_raised = bool_false;
+ 1f0:	1b 82       	std	Y+3, r1	; 0x03
+	handle->iface.Key_On_raised = bool_false;
+ 1f2:	1c 82       	std	Y+4, r1	; 0x04
+	handle->timeEvents.state_chart__region0_Flashing_r1_flashing_off_tev0_raised = bool_false;
+ 1f4:	1d 82       	std	Y+5, r1	; 0x05
+	handle->timeEvents.state_chart__region0_Flashing_r1_flashing_on_tev0_raised = bool_false;
+ 1f6:	1e 82       	std	Y+6, r1	; 0x06
+			break;
+		}
+	}
+	
+	state_chart_clearInEvents(handle);
+}
+ 1f8:	df 91       	pop	r29
+ 1fa:	cf 91       	pop	r28
+ 1fc:	0f 91       	pop	r16
+ 1fe:	08 95       	ret
+
+/* The reactions of state flashing_off. */
+static void state_chart_react__region0_Flashing_r1_flashing_off(State_chart* handle)
+{
+	/* The reactions of state flashing_off. */
+	if (state_chart_check__region0_Flashing_tr0_tr0(handle) == bool_true)
+ 200:	8b 81       	ldd	r24, Y+3	; 0x03
+ 202:	81 11       	cpse	r24, r1
+ 204:	12 c0       	rjmp	.+36     	; 0x22a <state_chart_runCycle+0xb8>
+	{ 
+		state_chart_effect__region0_Flashing_tr0(handle);
+	}  else
+	{
+		if (state_chart_check__region0_Flashing_r1_flashing_off_tr0_tr0(handle) == bool_true)
+ 206:	8d 81       	ldd	r24, Y+5	; 0x05
+ 208:	88 23       	and	r24, r24
+ 20a:	41 f2       	breq	.-112    	; 0x19c <state_chart_runCycle+0x2a>
+
+/* Default exit sequence for state flashing_off */
+static void state_chart_exseq__region0_Flashing_r1_flashing_off(State_chart* handle)
+{
+	/* Default exit sequence for state flashing_off */
+	handle->stateConfVector[0] = State_chart_last_state;
+ 20c:	18 82       	st	Y, r1
+	handle->stateConfVectorPosition = 0;
+ 20e:	1a 82       	std	Y+2, r1	; 0x02
+ 210:	19 82       	std	Y+1, r1	; 0x01
+
+/* Exit action for state 'flashing_off'. */
+static void state_chart_exact__region0_Flashing_r1_flashing_off(State_chart* handle)
+{
+	/* Exit action for state 'flashing_off'. */
+	state_chart_unsetTimer(handle, (sc_eventid) &(handle->timeEvents.state_chart__region0_Flashing_r1_flashing_off_tev0_raised) );		
+ 212:	be 01       	movw	r22, r28
+ 214:	6b 5f       	subi	r22, 0xFB	; 251
+ 216:	7f 4f       	sbci	r23, 0xFF	; 255
+ 218:	ce 01       	movw	r24, r28
+ 21a:	0e 94 4a 03 	call	0x694	; 0x694 <state_chart_unsetTimer>
+
+/* 'default' enter sequence for state flashing_on */
+static void state_chart_enseq__region0_Flashing_r1_flashing_on_default(State_chart* handle)
+{
+	/* 'default' enter sequence for state flashing_on */
+	state_chart_enact__region0_Flashing_r1_flashing_on(handle);
+ 21e:	ce 01       	movw	r24, r28
+ 220:	0e 94 61 00 	call	0xc2	; 0xc2 <state_chart_enact__region0_Flashing_r1_flashing_on>
+	handle->stateConfVector[0] = State_chart__region0_Flashing_r1_flashing_on;
+ 224:	85 e0       	ldi	r24, 0x05	; 5
+ 226:	88 83       	st	Y, r24
+ 228:	df cf       	rjmp	.-66     	; 0x1e8 <state_chart_runCycle+0x76>
+
+/* Default exit sequence for state Flashing */
+static void state_chart_exseq__region0_Flashing(State_chart* handle)
+{
+	/* Default exit sequence for state Flashing */
+	state_chart_exseq__region0_Flashing_r1(handle);
+ 22a:	ce 01       	movw	r24, r28
+ 22c:	0e 94 48 00 	call	0x90	; 0x90 <state_chart_exseq__region0_Flashing_r1>
+
+/* Entry action for state 'Off'. */
+static void state_chart_enact__region0_Off(State_chart* handle)
+{
+	/* Entry action for state 'Off'. */
+	state_chartIface_setLight(handle, bool_false);
+ 230:	60 e0       	ldi	r22, 0x00	; 0
+ 232:	ce 01       	movw	r24, r28
+ 234:	0e 94 cc 03 	call	0x798	; 0x798 <state_chartIface_setLight>
+/* 'default' enter sequence for state Off */
+static void state_chart_enseq__region0_Off_default(State_chart* handle)
+{
+	/* 'default' enter sequence for state Off */
+	state_chart_enact__region0_Off(handle);
+	handle->stateConfVector[0] = State_chart__region0_Off;
+ 238:	81 e0       	ldi	r24, 0x01	; 1
+ 23a:	88 83       	st	Y, r24
+ 23c:	d5 cf       	rjmp	.-86     	; 0x1e8 <state_chart_runCycle+0x76>
+
+/* Default exit sequence for state flashing_on */
+static void state_chart_exseq__region0_Flashing_r1_flashing_on(State_chart* handle)
+{
+	/* Default exit sequence for state flashing_on */
+	handle->stateConfVector[0] = State_chart_last_state;
+ 23e:	18 82       	st	Y, r1
+	handle->stateConfVectorPosition = 0;
+ 240:	1a 82       	std	Y+2, r1	; 0x02
+ 242:	19 82       	std	Y+1, r1	; 0x01
+
+/* Exit action for state 'flashing_on'. */
+static void state_chart_exact__region0_Flashing_r1_flashing_on(State_chart* handle)
+{
+	/* Exit action for state 'flashing_on'. */
+	state_chart_unsetTimer(handle, (sc_eventid) &(handle->timeEvents.state_chart__region0_Flashing_r1_flashing_on_tev0_raised) );		
+ 244:	be 01       	movw	r22, r28
+ 246:	6a 5f       	subi	r22, 0xFA	; 250
+ 248:	7f 4f       	sbci	r23, 0xFF	; 255
+ 24a:	ce 01       	movw	r24, r28
+ 24c:	0e 94 4a 03 	call	0x694	; 0x694 <state_chart_unsetTimer>
+
+/* Entry action for state 'flashing_off'. */
+static void state_chart_enact__region0_Flashing_r1_flashing_off(State_chart* handle)
+{
+	/* Entry action for state 'flashing_off'. */
+	state_chart_setTimer(handle, (sc_eventid) &(handle->timeEvents.state_chart__region0_Flashing_r1_flashing_off_tev0_raised) , 500, bool_false);
+ 250:	00 e0       	ldi	r16, 0x00	; 0
+ 252:	24 ef       	ldi	r18, 0xF4	; 244
+ 254:	31 e0       	ldi	r19, 0x01	; 1
+ 256:	40 e0       	ldi	r20, 0x00	; 0
+ 258:	50 e0       	ldi	r21, 0x00	; 0
+ 25a:	be 01       	movw	r22, r28
+ 25c:	6b 5f       	subi	r22, 0xFB	; 251
+ 25e:	7f 4f       	sbci	r23, 0xFF	; 255
+ 260:	ce 01       	movw	r24, r28
+ 262:	0e 94 f0 02 	call	0x5e0	; 0x5e0 <state_chart_setTimer>
+	state_chartIface_setLight(handle, bool_false);
+ 266:	60 e0       	ldi	r22, 0x00	; 0
+ 268:	ce 01       	movw	r24, r28
+ 26a:	0e 94 cc 03 	call	0x798	; 0x798 <state_chartIface_setLight>
+/* 'default' enter sequence for state flashing_off */
+static void state_chart_enseq__region0_Flashing_r1_flashing_off_default(State_chart* handle)
+{
+	/* 'default' enter sequence for state flashing_off */
+	state_chart_enact__region0_Flashing_r1_flashing_off(handle);
+	handle->stateConfVector[0] = State_chart__region0_Flashing_r1_flashing_off;
+ 26e:	84 e0       	ldi	r24, 0x04	; 4
+ 270:	88 83       	st	Y, r24
+ 272:	ba cf       	rjmp	.-140    	; 0x1e8 <state_chart_runCycle+0x76>
+
+/* Default exit sequence for state On */
+static void state_chart_exseq__region0_On(State_chart* handle)
+{
+	/* Default exit sequence for state On */
+	handle->stateConfVector[0] = State_chart_last_state;
+ 274:	18 82       	st	Y, r1
+	handle->stateConfVectorPosition = 0;
+ 276:	1a 82       	std	Y+2, r1	; 0x02
+ 278:	19 82       	std	Y+1, r1	; 0x01
+ 27a:	da cf       	rjmp	.-76     	; 0x230 <state_chart_runCycle+0xbe>
+
+0000027c <state_chart_raiseTimeEvent>:
+	state_chart_clearInEvents(handle);
+}
+
+void state_chart_raiseTimeEvent(const State_chart* handle, sc_eventid evid)
+{
+	if ( ((sc_intptr_t)evid) >= ((sc_intptr_t)&(handle->timeEvents))
+ 27c:	9c 01       	movw	r18, r24
+ 27e:	2b 5f       	subi	r18, 0xFB	; 251
+ 280:	3f 4f       	sbci	r19, 0xFF	; 255
+ 282:	62 17       	cp	r22, r18
+ 284:	73 07       	cpc	r23, r19
+ 286:	3c f0       	brlt	.+14     	; 0x296 <state_chart_raiseTimeEvent+0x1a>
+		&&  ((sc_intptr_t)evid) < ((sc_intptr_t)&(handle->timeEvents)) + sizeof(State_chartTimeEvents))
+ 288:	07 96       	adiw	r24, 0x07	; 7
+ 28a:	68 17       	cp	r22, r24
+ 28c:	79 07       	cpc	r23, r25
+ 28e:	18 f4       	brcc	.+6      	; 0x296 <state_chart_raiseTimeEvent+0x1a>
+		{
+		*(sc_boolean*)evid = bool_true;
+ 290:	81 e0       	ldi	r24, 0x01	; 1
+ 292:	fb 01       	movw	r30, r22
+ 294:	80 83       	st	Z, r24
+ 296:	08 95       	ret
+
+00000298 <state_chart_isStateActive>:
+	}		
+}
+
+sc_boolean state_chart_isStateActive(const State_chart* handle, State_chartStates state)
+{
+ 298:	fc 01       	movw	r30, r24
+	sc_boolean result = bool_false;
+	switch (state)
+ 29a:	63 30       	cpi	r22, 0x03	; 3
+ 29c:	09 f1       	breq	.+66     	; 0x2e0 <state_chart_isStateActive+0x48>
+ 29e:	50 f4       	brcc	.+20     	; 0x2b4 <state_chart_isStateActive+0x1c>
+ 2a0:	61 30       	cpi	r22, 0x01	; 1
+ 2a2:	c1 f0       	breq	.+48     	; 0x2d4 <state_chart_isStateActive+0x3c>
+ 2a4:	62 30       	cpi	r22, 0x02	; 2
+ 2a6:	21 f4       	brne	.+8      	; 0x2b0 <state_chart_isStateActive+0x18>
+		case State_chart__region0_Off :
+			result = (sc_boolean) (handle->stateConfVector[SCVI_STATE_CHART__REGION0_OFF] == State_chart__region0_Off
+			);
+			break;
+		case State_chart__region0_On :
+			result = (sc_boolean) (handle->stateConfVector[SCVI_STATE_CHART__REGION0_ON] == State_chart__region0_On
+ 2a8:	81 e0       	ldi	r24, 0x01	; 1
+ 2aa:	90 81       	ld	r25, Z
+ 2ac:	92 30       	cpi	r25, 0x02	; 2
+ 2ae:	09 f0       	breq	.+2      	; 0x2b2 <state_chart_isStateActive+0x1a>
+		case State_chart__region0_Flashing_r1_flashing_on :
+			result = (sc_boolean) (handle->stateConfVector[SCVI_STATE_CHART__REGION0_FLASHING_R1_FLASHING_ON] == State_chart__region0_Flashing_r1_flashing_on
+			);
+			break;
+		default:
+			result = bool_false;
+ 2b0:	80 e0       	ldi	r24, 0x00	; 0
+			break;
+	}
+	return result;
+}
+ 2b2:	08 95       	ret
+}
+
+sc_boolean state_chart_isStateActive(const State_chart* handle, State_chartStates state)
+{
+	sc_boolean result = bool_false;
+	switch (state)
+ 2b4:	64 30       	cpi	r22, 0x04	; 4
+ 2b6:	41 f0       	breq	.+16     	; 0x2c8 <state_chart_isStateActive+0x30>
+ 2b8:	65 30       	cpi	r22, 0x05	; 5
+ 2ba:	d1 f7       	brne	.-12     	; 0x2b0 <state_chart_isStateActive+0x18>
+		case State_chart__region0_Flashing_r1_flashing_off :
+			result = (sc_boolean) (handle->stateConfVector[SCVI_STATE_CHART__REGION0_FLASHING_R1_FLASHING_OFF] == State_chart__region0_Flashing_r1_flashing_off
+			);
+			break;
+		case State_chart__region0_Flashing_r1_flashing_on :
+			result = (sc_boolean) (handle->stateConfVector[SCVI_STATE_CHART__REGION0_FLASHING_R1_FLASHING_ON] == State_chart__region0_Flashing_r1_flashing_on
+ 2bc:	81 e0       	ldi	r24, 0x01	; 1
+ 2be:	90 81       	ld	r25, Z
+ 2c0:	95 30       	cpi	r25, 0x05	; 5
+ 2c2:	b9 f3       	breq	.-18     	; 0x2b2 <state_chart_isStateActive+0x1a>
+			);
+			break;
+		default:
+			result = bool_false;
+ 2c4:	80 e0       	ldi	r24, 0x00	; 0
+ 2c6:	f5 cf       	rjmp	.-22     	; 0x2b2 <state_chart_isStateActive+0x1a>
+		case State_chart__region0_Flashing :
+			result = (sc_boolean) (handle->stateConfVector[SCVI_STATE_CHART__REGION0_FLASHING] >= State_chart__region0_Flashing
+				&& handle->stateConfVector[SCVI_STATE_CHART__REGION0_FLASHING] <= State_chart__region0_Flashing_r1_flashing_on);
+			break;
+		case State_chart__region0_Flashing_r1_flashing_off :
+			result = (sc_boolean) (handle->stateConfVector[SCVI_STATE_CHART__REGION0_FLASHING_R1_FLASHING_OFF] == State_chart__region0_Flashing_r1_flashing_off
+ 2c8:	81 e0       	ldi	r24, 0x01	; 1
+ 2ca:	90 81       	ld	r25, Z
+ 2cc:	94 30       	cpi	r25, 0x04	; 4
+ 2ce:	89 f3       	breq	.-30     	; 0x2b2 <state_chart_isStateActive+0x1a>
+		case State_chart__region0_Flashing_r1_flashing_on :
+			result = (sc_boolean) (handle->stateConfVector[SCVI_STATE_CHART__REGION0_FLASHING_R1_FLASHING_ON] == State_chart__region0_Flashing_r1_flashing_on
+			);
+			break;
+		default:
+			result = bool_false;
+ 2d0:	80 e0       	ldi	r24, 0x00	; 0
+ 2d2:	ef cf       	rjmp	.-34     	; 0x2b2 <state_chart_isStateActive+0x1a>
+{
+	sc_boolean result = bool_false;
+	switch (state)
+	{
+		case State_chart__region0_Off :
+			result = (sc_boolean) (handle->stateConfVector[SCVI_STATE_CHART__REGION0_OFF] == State_chart__region0_Off
+ 2d4:	81 e0       	ldi	r24, 0x01	; 1
+ 2d6:	90 81       	ld	r25, Z
+ 2d8:	91 30       	cpi	r25, 0x01	; 1
+ 2da:	59 f3       	breq	.-42     	; 0x2b2 <state_chart_isStateActive+0x1a>
+		case State_chart__region0_Flashing_r1_flashing_on :
+			result = (sc_boolean) (handle->stateConfVector[SCVI_STATE_CHART__REGION0_FLASHING_R1_FLASHING_ON] == State_chart__region0_Flashing_r1_flashing_on
+			);
+			break;
+		default:
+			result = bool_false;
+ 2dc:	80 e0       	ldi	r24, 0x00	; 0
+ 2de:	e9 cf       	rjmp	.-46     	; 0x2b2 <state_chart_isStateActive+0x1a>
+			result = (sc_boolean) (handle->stateConfVector[SCVI_STATE_CHART__REGION0_ON] == State_chart__region0_On
+			);
+			break;
+		case State_chart__region0_Flashing :
+			result = (sc_boolean) (handle->stateConfVector[SCVI_STATE_CHART__REGION0_FLASHING] >= State_chart__region0_Flashing
+				&& handle->stateConfVector[SCVI_STATE_CHART__REGION0_FLASHING] <= State_chart__region0_Flashing_r1_flashing_on);
+ 2e0:	90 81       	ld	r25, Z
+ 2e2:	93 50       	subi	r25, 0x03	; 3
+		case State_chart__region0_On :
+			result = (sc_boolean) (handle->stateConfVector[SCVI_STATE_CHART__REGION0_ON] == State_chart__region0_On
+			);
+			break;
+		case State_chart__region0_Flashing :
+			result = (sc_boolean) (handle->stateConfVector[SCVI_STATE_CHART__REGION0_FLASHING] >= State_chart__region0_Flashing
+ 2e4:	81 e0       	ldi	r24, 0x01	; 1
+ 2e6:	93 30       	cpi	r25, 0x03	; 3
+ 2e8:	18 f7       	brcc	.-58     	; 0x2b0 <state_chart_isStateActive+0x18>
+		default:
+			result = bool_false;
+			break;
+	}
+	return result;
+}
+ 2ea:	08 95       	ret
+
+000002ec <state_chartIface_raise_key_Off>:
+
+void state_chartIface_raise_key_Off(State_chart* handle)
+{
+	handle->iface.Key_Off_raised = bool_true;
+ 2ec:	21 e0       	ldi	r18, 0x01	; 1
+ 2ee:	fc 01       	movw	r30, r24
+ 2f0:	23 83       	std	Z+3, r18	; 0x03
+ 2f2:	08 95       	ret
+
+000002f4 <state_chartIface_raise_key_On>:
+}
+void state_chartIface_raise_key_On(State_chart* handle)
+{
+	handle->iface.Key_On_raised = bool_true;
+ 2f4:	21 e0       	ldi	r18, 0x01	; 1
+ 2f6:	fc 01       	movw	r30, r24
+ 2f8:	24 83       	std	Z+4, r18	; 0x04
+ 2fa:	08 95       	ret
+
+000002fc <sc_timer_start>:
+
+
+
+/*! Starts a timer with the specified parameters. */
+void sc_timer_start(sc_timer_service_t *this, void* handle, const sc_eventid evid,
+		const sc_integer time_ms, const sc_boolean periodic) {
+ 2fc:	6f 92       	push	r6
+ 2fe:	7f 92       	push	r7
+ 300:	8f 92       	push	r8
+ 302:	9f 92       	push	r9
+ 304:	af 92       	push	r10
+ 306:	bf 92       	push	r11
+ 308:	cf 92       	push	r12
+ 30a:	df 92       	push	r13
+ 30c:	ef 92       	push	r14
+ 30e:	ff 92       	push	r15
+ 310:	0f 93       	push	r16
+ 312:	1f 93       	push	r17
+ 314:	cf 93       	push	r28
+ 316:	ce 2d       	mov	r28, r14
+
+
+	/* go through all timers ... */
+	for (int i = 0; i < this->timer_count; i++) {
+ 318:	dc 01       	movw	r26, r24
+ 31a:	8d 90       	ld	r8, X+
+ 31c:	9d 90       	ld	r9, X+
+ 31e:	ad 90       	ld	r10, X+
+ 320:	bc 90       	ld	r11, X
+ 322:	13 97       	sbiw	r26, 0x03	; 3
+ 324:	18 14       	cp	r1, r8
+ 326:	19 04       	cpc	r1, r9
+ 328:	1a 04       	cpc	r1, r10
+ 32a:	1b 04       	cpc	r1, r11
+ 32c:	1c f5       	brge	.+70     	; 0x374 <sc_timer_start+0x78>
+
+		/* ... and find an unused one. */
+		if (this->timers[i].pt_evid == NULL) {
+ 32e:	14 96       	adiw	r26, 0x04	; 4
+ 330:	ed 91       	ld	r30, X+
+ 332:	fc 91       	ld	r31, X
+ 334:	15 97       	sbiw	r26, 0x05	; 5
+ 336:	a1 85       	ldd	r26, Z+9	; 0x09
+ 338:	b2 85       	ldd	r27, Z+10	; 0x0a
+ 33a:	ab 2b       	or	r26, r27
+ 33c:	49 f1       	breq	.+82     	; 0x390 <sc_timer_start+0x94>
+ 33e:	3f 01       	movw	r6, r30
+ 340:	bf e0       	ldi	r27, 0x0F	; 15
+ 342:	6b 0e       	add	r6, r27
+ 344:	71 1c       	adc	r7, r1
+ 346:	c1 2c       	mov	r12, r1
+ 348:	d1 2c       	mov	r13, r1
+ 34a:	76 01       	movw	r14, r12
+ 34c:	c3 94       	inc	r12
+ 34e:	0d c0       	rjmp	.+26     	; 0x36a <sc_timer_start+0x6e>
+ 350:	f3 01       	movw	r30, r6
+ 352:	bf ef       	ldi	r27, 0xFF	; 255
+ 354:	cb 1a       	sub	r12, r27
+ 356:	db 0a       	sbc	r13, r27
+ 358:	eb 0a       	sbc	r14, r27
+ 35a:	fb 0a       	sbc	r15, r27
+ 35c:	af e0       	ldi	r26, 0x0F	; 15
+ 35e:	6a 0e       	add	r6, r26
+ 360:	71 1c       	adc	r7, r1
+ 362:	a1 85       	ldd	r26, Z+9	; 0x09
+ 364:	b2 85       	ldd	r27, Z+10	; 0x0a
+ 366:	ab 2b       	or	r26, r27
+ 368:	99 f0       	breq	.+38     	; 0x390 <sc_timer_start+0x94>
+void sc_timer_start(sc_timer_service_t *this, void* handle, const sc_eventid evid,
+		const sc_integer time_ms, const sc_boolean periodic) {
+
+
+	/* go through all timers ... */
+	for (int i = 0; i < this->timer_count; i++) {
+ 36a:	c8 14       	cp	r12, r8
+ 36c:	d9 04       	cpc	r13, r9
+ 36e:	ea 04       	cpc	r14, r10
+ 370:	fb 04       	cpc	r15, r11
+ 372:	71 f7       	brne	.-36     	; 0x350 <sc_timer_start+0x54>
+
+			break;
+		}
+	}
+
+}
+ 374:	cf 91       	pop	r28
+ 376:	1f 91       	pop	r17
+ 378:	0f 91       	pop	r16
+ 37a:	ff 90       	pop	r15
+ 37c:	ef 90       	pop	r14
+ 37e:	df 90       	pop	r13
+ 380:	cf 90       	pop	r12
+ 382:	bf 90       	pop	r11
+ 384:	af 90       	pop	r10
+ 386:	9f 90       	pop	r9
+ 388:	8f 90       	pop	r8
+ 38a:	7f 90       	pop	r7
+ 38c:	6f 90       	pop	r6
+ 38e:	08 95       	ret
+
+		/* ... and find an unused one. */
+		if (this->timers[i].pt_evid == NULL) {
+
+			/* set timer properties */
+			this->timers[i].pt_evid = evid;
+ 390:	52 87       	std	Z+10, r21	; 0x0a
+ 392:	41 87       	std	Z+9, r20	; 0x09
+			this->timers[i].time_ms = time_ms;
+ 394:	00 83       	st	Z, r16
+ 396:	11 83       	std	Z+1, r17	; 0x01
+ 398:	22 83       	std	Z+2, r18	; 0x02
+ 39a:	33 83       	std	Z+3, r19	; 0x03
+			this->timers[i].periodic = periodic;
+ 39c:	c4 83       	std	Z+4, r28	; 0x04
+			this->timers[i].handle = handle;
+ 39e:	74 87       	std	Z+12, r23	; 0x0c
+ 3a0:	63 87       	std	Z+11, r22	; 0x0b
+			this->timers[i].service = this;
+ 3a2:	96 87       	std	Z+14, r25	; 0x0e
+ 3a4:	85 87       	std	Z+13, r24	; 0x0d
+
+			// reset the elapsed time ...
+			this->timers[i].elapsed_time_ms = 0;
+ 3a6:	15 82       	std	Z+5, r1	; 0x05
+ 3a8:	16 82       	std	Z+6, r1	; 0x06
+ 3aa:	17 82       	std	Z+7, r1	; 0x07
+ 3ac:	10 86       	std	Z+8, r1	; 0x08
+
+			break;
+ 3ae:	e2 cf       	rjmp	.-60     	; 0x374 <sc_timer_start+0x78>
+
+000003b0 <sc_timer_cancel>:
+
+}
+
+
+/*! Cancels a timer for the specified time event. */
+void sc_timer_cancel(sc_timer_service_t *this, const sc_eventid evid) {
+ 3b0:	0f 93       	push	r16
+ 3b2:	1f 93       	push	r17
+ 3b4:	cf 93       	push	r28
+ 3b6:	df 93       	push	r29
+ 3b8:	8b 01       	movw	r16, r22
+
+	int i;
+
+	for (i = 0; i < this->timer_count; i++) {
+ 3ba:	dc 01       	movw	r26, r24
+ 3bc:	4d 91       	ld	r20, X+
+ 3be:	5d 91       	ld	r21, X+
+ 3c0:	6d 91       	ld	r22, X+
+ 3c2:	7c 91       	ld	r23, X
+ 3c4:	13 97       	sbiw	r26, 0x03	; 3
+ 3c6:	14 16       	cp	r1, r20
+ 3c8:	15 06       	cpc	r1, r21
+ 3ca:	16 06       	cpc	r1, r22
+ 3cc:	17 06       	cpc	r1, r23
+ 3ce:	0c f5       	brge	.+66     	; 0x412 <sc_timer_cancel+0x62>
+		if (this->timers[i].pt_evid == evid) {
+ 3d0:	14 96       	adiw	r26, 0x04	; 4
+ 3d2:	ed 91       	ld	r30, X+
+ 3d4:	fc 91       	ld	r31, X
+ 3d6:	15 97       	sbiw	r26, 0x05	; 5
+ 3d8:	81 85       	ldd	r24, Z+9	; 0x09
+ 3da:	92 85       	ldd	r25, Z+10	; 0x0a
+ 3dc:	80 17       	cp	r24, r16
+ 3de:	91 07       	cpc	r25, r17
+ 3e0:	e9 f0       	breq	.+58     	; 0x41c <sc_timer_cancel+0x6c>
+ 3e2:	9f 01       	movw	r18, r30
+ 3e4:	21 5f       	subi	r18, 0xF1	; 241
+ 3e6:	3f 4f       	sbci	r19, 0xFF	; 255
+ 3e8:	81 e0       	ldi	r24, 0x01	; 1
+ 3ea:	90 e0       	ldi	r25, 0x00	; 0
+ 3ec:	a0 e0       	ldi	r26, 0x00	; 0
+ 3ee:	b0 e0       	ldi	r27, 0x00	; 0
+ 3f0:	0b c0       	rjmp	.+22     	; 0x408 <sc_timer_cancel+0x58>
+ 3f2:	f9 01       	movw	r30, r18
+ 3f4:	01 96       	adiw	r24, 0x01	; 1
+ 3f6:	a1 1d       	adc	r26, r1
+ 3f8:	b1 1d       	adc	r27, r1
+ 3fa:	21 5f       	subi	r18, 0xF1	; 241
+ 3fc:	3f 4f       	sbci	r19, 0xFF	; 255
+ 3fe:	c1 85       	ldd	r28, Z+9	; 0x09
+ 400:	d2 85       	ldd	r29, Z+10	; 0x0a
+ 402:	c0 17       	cp	r28, r16
+ 404:	d1 07       	cpc	r29, r17
+ 406:	51 f0       	breq	.+20     	; 0x41c <sc_timer_cancel+0x6c>
+/*! Cancels a timer for the specified time event. */
+void sc_timer_cancel(sc_timer_service_t *this, const sc_eventid evid) {
+
+	int i;
+
+	for (i = 0; i < this->timer_count; i++) {
+ 408:	84 17       	cp	r24, r20
+ 40a:	95 07       	cpc	r25, r21
+ 40c:	a6 07       	cpc	r26, r22
+ 40e:	b7 07       	cpc	r27, r23
+ 410:	81 f7       	brne	.-32     	; 0x3f2 <sc_timer_cancel+0x42>
+			this->timers[i].handle = NULL;
+
+			break;
+		}
+	}
+}
+ 412:	df 91       	pop	r29
+ 414:	cf 91       	pop	r28
+ 416:	1f 91       	pop	r17
+ 418:	0f 91       	pop	r16
+ 41a:	08 95       	ret
+	int i;
+
+	for (i = 0; i < this->timer_count; i++) {
+		if (this->timers[i].pt_evid == evid) {
+
+			this->timers[i].pt_evid = NULL;
+ 41c:	12 86       	std	Z+10, r1	; 0x0a
+ 41e:	11 86       	std	Z+9, r1	; 0x09
+			this->timers[i].handle = NULL;
+ 420:	14 86       	std	Z+12, r1	; 0x0c
+ 422:	13 86       	std	Z+11, r1	; 0x0b
+
+			break;
+		}
+	}
+}
+ 424:	df 91       	pop	r29
+ 426:	cf 91       	pop	r28
+ 428:	1f 91       	pop	r17
+ 42a:	0f 91       	pop	r16
+ 42c:	08 95       	ret
+
+0000042e <sc_timer_service_init>:
+
+/*! Initializes a timer service with a set of timers. */
+void sc_timer_service_init(sc_timer_service_t *tservice,
+	sc_timer_t *timers,
+	sc_integer count,
+	sc_raise_time_event_fp raise_event) {
+ 42e:	0f 93       	push	r16
+ 430:	1f 93       	push	r17
+ 432:	fc 01       	movw	r30, r24
+
+	tservice->timers = timers;
+ 434:	75 83       	std	Z+5, r23	; 0x05
+ 436:	64 83       	std	Z+4, r22	; 0x04
+	tservice->timer_count = count;
+ 438:	20 83       	st	Z, r18
+ 43a:	31 83       	std	Z+1, r19	; 0x01
+ 43c:	42 83       	std	Z+2, r20	; 0x02
+ 43e:	53 83       	std	Z+3, r21	; 0x03
+	for (int i=0; i<count; i++) {
+ 440:	12 16       	cp	r1, r18
+ 442:	13 06       	cpc	r1, r19
+ 444:	14 06       	cpc	r1, r20
+ 446:	15 06       	cpc	r1, r21
+ 448:	4c f4       	brge	.+18     	; 0x45c <sc_timer_service_init+0x2e>
+ 44a:	db 01       	movw	r26, r22
+ 44c:	1a 96       	adiw	r26, 0x0a	; 10
+ 44e:	1c 92       	st	X, r1
+ 450:	1e 92       	st	-X, r1
+ 452:	19 97       	sbiw	r26, 0x09	; 9
+ 454:	1e 96       	adiw	r26, 0x0e	; 14
+ 456:	9c 93       	st	X, r25
+ 458:	8e 93       	st	-X, r24
+ 45a:	1d 97       	sbiw	r26, 0x0d	; 13
+		tservice->timers->pt_evid = NULL;
+		tservice->timers->service = tservice;
+	}
+
+	tservice->raise_event = raise_event;
+ 45c:	17 83       	std	Z+7, r17	; 0x07
+ 45e:	06 83       	std	Z+6, r16	; 0x06
+}
+ 460:	1f 91       	pop	r17
+ 462:	0f 91       	pop	r16
+ 464:	08 95       	ret
+
+00000466 <sc_timer_service_proceed>:
+
+
+void sc_timer_service_proceed(sc_timer_service_t *this, const sc_integer time_ms) {
+ 466:	2f 92       	push	r2
+ 468:	3f 92       	push	r3
+ 46a:	4f 92       	push	r4
+ 46c:	5f 92       	push	r5
+ 46e:	6f 92       	push	r6
+ 470:	7f 92       	push	r7
+ 472:	8f 92       	push	r8
+ 474:	9f 92       	push	r9
+ 476:	af 92       	push	r10
+ 478:	bf 92       	push	r11
+ 47a:	cf 92       	push	r12
+ 47c:	df 92       	push	r13
+ 47e:	ef 92       	push	r14
+ 480:	ff 92       	push	r15
+ 482:	0f 93       	push	r16
+ 484:	1f 93       	push	r17
+ 486:	cf 93       	push	r28
+ 488:	df 93       	push	r29
+ 48a:	cd b7       	in	r28, 0x3d	; 61
+ 48c:	de b7       	in	r29, 0x3e	; 62
+ 48e:	28 97       	sbiw	r28, 0x08	; 8
+ 490:	0f b6       	in	r0, 0x3f	; 63
+ 492:	f8 94       	cli
+ 494:	de bf       	out	0x3e, r29	; 62
+ 496:	0f be       	out	0x3f, r0	; 63
+ 498:	cd bf       	out	0x3d, r28	; 61
+ 49a:	1c 01       	movw	r2, r24
+ 49c:	49 83       	std	Y+1, r20	; 0x01
+ 49e:	5a 83       	std	Y+2, r21	; 0x02
+ 4a0:	6b 83       	std	Y+3, r22	; 0x03
+ 4a2:	7c 83       	std	Y+4, r23	; 0x04
+
+	/* go through all timers ... */
+	for (int i = 0; i < this->timer_count; i++) {
+ 4a4:	fc 01       	movw	r30, r24
+ 4a6:	80 80       	ld	r8, Z
+ 4a8:	91 80       	ldd	r9, Z+1	; 0x01
+ 4aa:	a2 80       	ldd	r10, Z+2	; 0x02
+ 4ac:	b3 80       	ldd	r11, Z+3	; 0x03
+ 4ae:	18 14       	cp	r1, r8
+ 4b0:	19 04       	cpc	r1, r9
+ 4b2:	1a 04       	cpc	r1, r10
+ 4b4:	1b 04       	cpc	r1, r11
+ 4b6:	0c f0       	brlt	.+2      	; 0x4ba <sc_timer_service_proceed+0x54>
+ 4b8:	7a c0       	rjmp	.+244    	; 0x5ae <sc_timer_service_proceed+0x148>
+ 4ba:	c1 2c       	mov	r12, r1
+ 4bc:	d1 2c       	mov	r13, r1
+ 4be:	76 01       	movw	r14, r12
+ 4c0:	c3 94       	inc	r12
+ 4c2:	18 86       	std	Y+8, r1	; 0x08
+ 4c4:	1f 82       	std	Y+7, r1	; 0x07
+ 4c6:	84 81       	ldd	r24, Z+4	; 0x04
+ 4c8:	95 81       	ldd	r25, Z+5	; 0x05
+ 4ca:	13 c0       	rjmp	.+38     	; 0x4f2 <sc_timer_service_proceed+0x8c>
+ 4cc:	b7 01       	movw	r22, r14
+ 4ce:	a6 01       	movw	r20, r12
+ 4d0:	2f 81       	ldd	r18, Y+7	; 0x07
+ 4d2:	38 85       	ldd	r19, Y+8	; 0x08
+ 4d4:	21 5f       	subi	r18, 0xF1	; 241
+ 4d6:	3f 4f       	sbci	r19, 0xFF	; 255
+ 4d8:	38 87       	std	Y+8, r19	; 0x08
+ 4da:	2f 83       	std	Y+7, r18	; 0x07
+ 4dc:	3f ef       	ldi	r19, 0xFF	; 255
+ 4de:	c3 1a       	sub	r12, r19
+ 4e0:	d3 0a       	sbc	r13, r19
+ 4e2:	e3 0a       	sbc	r14, r19
+ 4e4:	f3 0a       	sbc	r15, r19
+ 4e6:	48 15       	cp	r20, r8
+ 4e8:	59 05       	cpc	r21, r9
+ 4ea:	6a 05       	cpc	r22, r10
+ 4ec:	7b 05       	cpc	r23, r11
+ 4ee:	0c f0       	brlt	.+2      	; 0x4f2 <sc_timer_service_proceed+0x8c>
+ 4f0:	5e c0       	rjmp	.+188    	; 0x5ae <sc_timer_service_proceed+0x148>
+
+		/* ... and process all used. */
+		if (this->timers[i].pt_evid != NULL) {
+ 4f2:	af 81       	ldd	r26, Y+7	; 0x07
+ 4f4:	b8 85       	ldd	r27, Y+8	; 0x08
+ 4f6:	a8 0f       	add	r26, r24
+ 4f8:	b9 1f       	adc	r27, r25
+ 4fa:	19 96       	adiw	r26, 0x09	; 9
+ 4fc:	2d 91       	ld	r18, X+
+ 4fe:	3c 91       	ld	r19, X
+ 500:	1a 97       	sbiw	r26, 0x0a	; 10
+ 502:	3e 83       	std	Y+6, r19	; 0x06
+ 504:	2d 83       	std	Y+5, r18	; 0x05
+ 506:	23 2b       	or	r18, r19
+ 508:	09 f3       	breq	.-62     	; 0x4cc <sc_timer_service_proceed+0x66>
+
+			if (this->timers[i].elapsed_time_ms < this->timers[i].time_ms) {
+ 50a:	15 96       	adiw	r26, 0x05	; 5
+ 50c:	4d 90       	ld	r4, X+
+ 50e:	5d 90       	ld	r5, X+
+ 510:	6d 90       	ld	r6, X+
+ 512:	7c 90       	ld	r7, X
+ 514:	18 97       	sbiw	r26, 0x08	; 8
+ 516:	0d 91       	ld	r16, X+
+ 518:	1d 91       	ld	r17, X+
+ 51a:	2d 91       	ld	r18, X+
+ 51c:	3c 91       	ld	r19, X
+ 51e:	13 97       	sbiw	r26, 0x03	; 3
+ 520:	40 16       	cp	r4, r16
+ 522:	51 06       	cpc	r5, r17
+ 524:	62 06       	cpc	r6, r18
+ 526:	73 06       	cpc	r7, r19
+ 528:	8c f6       	brge	.-94     	; 0x4cc <sc_timer_service_proceed+0x66>
+				this->timers[i].elapsed_time_ms += time_ms;
+ 52a:	49 81       	ldd	r20, Y+1	; 0x01
+ 52c:	5a 81       	ldd	r21, Y+2	; 0x02
+ 52e:	6b 81       	ldd	r22, Y+3	; 0x03
+ 530:	7c 81       	ldd	r23, Y+4	; 0x04
+ 532:	44 0e       	add	r4, r20
+ 534:	55 1e       	adc	r5, r21
+ 536:	66 1e       	adc	r6, r22
+ 538:	77 1e       	adc	r7, r23
+ 53a:	15 96       	adiw	r26, 0x05	; 5
+ 53c:	4d 92       	st	X+, r4
+ 53e:	5d 92       	st	X+, r5
+ 540:	6d 92       	st	X+, r6
+ 542:	7c 92       	st	X, r7
+ 544:	18 97       	sbiw	r26, 0x08	; 8
+
+				if (this->timers[i].elapsed_time_ms >= this->timers[i].time_ms) {
+ 546:	40 16       	cp	r4, r16
+ 548:	51 06       	cpc	r5, r17
+ 54a:	62 06       	cpc	r6, r18
+ 54c:	73 06       	cpc	r7, r19
+ 54e:	0c f4       	brge	.+2      	; 0x552 <sc_timer_service_proceed+0xec>
+ 550:	bd cf       	rjmp	.-134    	; 0x4cc <sc_timer_service_proceed+0x66>
+
+
+/*! Callback that is called when a timer fires. */
+static void sc_timer_fired(sc_timer_t *timer) {
+
+	timer->service->raise_event(timer->handle, timer->pt_evid);
+ 552:	1d 96       	adiw	r26, 0x0d	; 13
+ 554:	ed 91       	ld	r30, X+
+ 556:	fc 91       	ld	r31, X
+ 558:	1e 97       	sbiw	r26, 0x0e	; 14
+ 55a:	06 80       	ldd	r0, Z+6	; 0x06
+ 55c:	f7 81       	ldd	r31, Z+7	; 0x07
+ 55e:	e0 2d       	mov	r30, r0
+ 560:	6d 81       	ldd	r22, Y+5	; 0x05
+ 562:	7e 81       	ldd	r23, Y+6	; 0x06
+ 564:	1b 96       	adiw	r26, 0x0b	; 11
+ 566:	8d 91       	ld	r24, X+
+ 568:	9c 91       	ld	r25, X
+ 56a:	1c 97       	sbiw	r26, 0x0c	; 12
+ 56c:	09 95       	icall
+			if (this->timers[i].elapsed_time_ms < this->timers[i].time_ms) {
+				this->timers[i].elapsed_time_ms += time_ms;
+
+				if (this->timers[i].elapsed_time_ms >= this->timers[i].time_ms) {
+					sc_timer_fired(&(this->timers[i]));
+					if (this->timers[i].periodic) {
+ 56e:	f1 01       	movw	r30, r2
+ 570:	84 81       	ldd	r24, Z+4	; 0x04
+ 572:	95 81       	ldd	r25, Z+5	; 0x05
+ 574:	ef 81       	ldd	r30, Y+7	; 0x07
+ 576:	f8 85       	ldd	r31, Y+8	; 0x08
+ 578:	e8 0f       	add	r30, r24
+ 57a:	f9 1f       	adc	r31, r25
+ 57c:	24 81       	ldd	r18, Z+4	; 0x04
+ 57e:	22 23       	and	r18, r18
+ 580:	81 f0       	breq	.+32     	; 0x5a2 <sc_timer_service_proceed+0x13c>
+						this->timers[i].elapsed_time_ms -= this->timers[i].time_ms;
+ 582:	45 81       	ldd	r20, Z+5	; 0x05
+ 584:	56 81       	ldd	r21, Z+6	; 0x06
+ 586:	67 81       	ldd	r22, Z+7	; 0x07
+ 588:	70 85       	ldd	r23, Z+8	; 0x08
+ 58a:	00 81       	ld	r16, Z
+ 58c:	11 81       	ldd	r17, Z+1	; 0x01
+ 58e:	22 81       	ldd	r18, Z+2	; 0x02
+ 590:	33 81       	ldd	r19, Z+3	; 0x03
+ 592:	40 1b       	sub	r20, r16
+ 594:	51 0b       	sbc	r21, r17
+ 596:	62 0b       	sbc	r22, r18
+ 598:	73 0b       	sbc	r23, r19
+ 59a:	45 83       	std	Z+5, r20	; 0x05
+ 59c:	56 83       	std	Z+6, r21	; 0x06
+ 59e:	67 83       	std	Z+7, r22	; 0x07
+ 5a0:	70 87       	std	Z+8, r23	; 0x08
+ 5a2:	f1 01       	movw	r30, r2
+ 5a4:	80 80       	ld	r8, Z
+ 5a6:	91 80       	ldd	r9, Z+1	; 0x01
+ 5a8:	a2 80       	ldd	r10, Z+2	; 0x02
+ 5aa:	b3 80       	ldd	r11, Z+3	; 0x03
+ 5ac:	8f cf       	rjmp	.-226    	; 0x4cc <sc_timer_service_proceed+0x66>
+				}
+			}
+		}
+	}
+
+}
+ 5ae:	28 96       	adiw	r28, 0x08	; 8
+ 5b0:	0f b6       	in	r0, 0x3f	; 63
+ 5b2:	f8 94       	cli
+ 5b4:	de bf       	out	0x3e, r29	; 62
+ 5b6:	0f be       	out	0x3f, r0	; 63
+ 5b8:	cd bf       	out	0x3d, r28	; 61
+ 5ba:	df 91       	pop	r29
+ 5bc:	cf 91       	pop	r28
+ 5be:	1f 91       	pop	r17
+ 5c0:	0f 91       	pop	r16
+ 5c2:	ff 90       	pop	r15
+ 5c4:	ef 90       	pop	r14
+ 5c6:	df 90       	pop	r13
+ 5c8:	cf 90       	pop	r12
+ 5ca:	bf 90       	pop	r11
+ 5cc:	af 90       	pop	r10
+ 5ce:	9f 90       	pop	r9
+ 5d0:	8f 90       	pop	r8
+ 5d2:	7f 90       	pop	r7
+ 5d4:	6f 90       	pop	r6
+ 5d6:	5f 90       	pop	r5
+ 5d8:	4f 90       	pop	r4
+ 5da:	3f 90       	pop	r3
+ 5dc:	2f 90       	pop	r2
+ 5de:	08 95       	ret
+
+000005e0 <state_chart_setTimer>:
+#define CYCLE_PERIOD 10 //number of milliseconds that pass between each statechart cycle<br>
+static sc_timer_service_t timer_service;
+static sc_timer_t timers[MAX_TIMERS];
+
+//! callback implementation for the setting up time events
+void state_chart_setTimer(State_chart* handle, const sc_eventid evid, const sc_integer time_ms, const sc_boolean periodic){
+ 5e0:	4f 92       	push	r4
+ 5e2:	5f 92       	push	r5
+ 5e4:	6f 92       	push	r6
+ 5e6:	7f 92       	push	r7
+ 5e8:	af 92       	push	r10
+ 5ea:	bf 92       	push	r11
+ 5ec:	cf 92       	push	r12
+ 5ee:	df 92       	push	r13
+ 5f0:	ef 92       	push	r14
+ 5f2:	ff 92       	push	r15
+ 5f4:	0f 93       	push	r16
+ 5f6:	cf 93       	push	r28
+ 5f8:	df 93       	push	r29
+ 5fa:	db 01       	movw	r26, r22
+void sc_timer_start(sc_timer_service_t *this, void* handle, const sc_eventid evid,
+		const sc_integer time_ms, const sc_boolean periodic) {
+
+
+	/* go through all timers ... */
+	for (int i = 0; i < this->timer_count; i++) {
+ 5fc:	c0 90 2c 02 	lds	r12, 0x022C
+ 600:	d0 90 2d 02 	lds	r13, 0x022D
+ 604:	e0 90 2e 02 	lds	r14, 0x022E
+ 608:	f0 90 2f 02 	lds	r15, 0x022F
+ 60c:	1c 14       	cp	r1, r12
+ 60e:	1d 04       	cpc	r1, r13
+ 610:	1e 04       	cpc	r1, r14
+ 612:	1f 04       	cpc	r1, r15
+ 614:	fc f4       	brge	.+62     	; 0x654 <state_chart_setTimer+0x74>
+
+		/* ... and find an unused one. */
+		if (this->timers[i].pt_evid == NULL) {
+ 616:	c0 91 30 02 	lds	r28, 0x0230
+ 61a:	d0 91 31 02 	lds	r29, 0x0231
+ 61e:	69 85       	ldd	r22, Y+9	; 0x09
+ 620:	7a 85       	ldd	r23, Y+10	; 0x0a
+ 622:	67 2b       	or	r22, r23
+ 624:	29 f1       	breq	.+74     	; 0x670 <state_chart_setTimer+0x90>
+ 626:	fe 01       	movw	r30, r28
+ 628:	3f 96       	adiw	r30, 0x0f	; 15
+ 62a:	41 2c       	mov	r4, r1
+ 62c:	51 2c       	mov	r5, r1
+ 62e:	32 01       	movw	r6, r4
+ 630:	43 94       	inc	r4
+ 632:	0b c0       	rjmp	.+22     	; 0x64a <state_chart_setTimer+0x6a>
+ 634:	ef 01       	movw	r28, r30
+ 636:	6f ef       	ldi	r22, 0xFF	; 255
+ 638:	46 1a       	sub	r4, r22
+ 63a:	56 0a       	sbc	r5, r22
+ 63c:	66 0a       	sbc	r6, r22
+ 63e:	76 0a       	sbc	r7, r22
+ 640:	3f 96       	adiw	r30, 0x0f	; 15
+ 642:	a9 84       	ldd	r10, Y+9	; 0x09
+ 644:	ba 84       	ldd	r11, Y+10	; 0x0a
+ 646:	ab 28       	or	r10, r11
+ 648:	99 f0       	breq	.+38     	; 0x670 <state_chart_setTimer+0x90>
+void sc_timer_start(sc_timer_service_t *this, void* handle, const sc_eventid evid,
+		const sc_integer time_ms, const sc_boolean periodic) {
+
+
+	/* go through all timers ... */
+	for (int i = 0; i < this->timer_count; i++) {
+ 64a:	4c 14       	cp	r4, r12
+ 64c:	5d 04       	cpc	r5, r13
+ 64e:	6e 04       	cpc	r6, r14
+ 650:	7f 04       	cpc	r7, r15
+ 652:	81 f7       	brne	.-32     	; 0x634 <state_chart_setTimer+0x54>
+static sc_timer_t timers[MAX_TIMERS];
+
+//! callback implementation for the setting up time events
+void state_chart_setTimer(State_chart* handle, const sc_eventid evid, const sc_integer time_ms, const sc_boolean periodic){
+    sc_timer_start(&timer_service, (void*) handle, evid, time_ms, periodic);
+}
+ 654:	df 91       	pop	r29
+ 656:	cf 91       	pop	r28
+ 658:	0f 91       	pop	r16
+ 65a:	ff 90       	pop	r15
+ 65c:	ef 90       	pop	r14
+ 65e:	df 90       	pop	r13
+ 660:	cf 90       	pop	r12
+ 662:	bf 90       	pop	r11
+ 664:	af 90       	pop	r10
+ 666:	7f 90       	pop	r7
+ 668:	6f 90       	pop	r6
+ 66a:	5f 90       	pop	r5
+ 66c:	4f 90       	pop	r4
+ 66e:	08 95       	ret
+
+		/* ... and find an unused one. */
+		if (this->timers[i].pt_evid == NULL) {
+
+			/* set timer properties */
+			this->timers[i].pt_evid = evid;
+ 670:	ba 87       	std	Y+10, r27	; 0x0a
+ 672:	a9 87       	std	Y+9, r26	; 0x09
+			this->timers[i].time_ms = time_ms;
+ 674:	28 83       	st	Y, r18
+ 676:	39 83       	std	Y+1, r19	; 0x01
+ 678:	4a 83       	std	Y+2, r20	; 0x02
+ 67a:	5b 83       	std	Y+3, r21	; 0x03
+			this->timers[i].periodic = periodic;
+ 67c:	0c 83       	std	Y+4, r16	; 0x04
+			this->timers[i].handle = handle;
+ 67e:	9c 87       	std	Y+12, r25	; 0x0c
+ 680:	8b 87       	std	Y+11, r24	; 0x0b
+			this->timers[i].service = this;
+ 682:	8c e2       	ldi	r24, 0x2C	; 44
+ 684:	92 e0       	ldi	r25, 0x02	; 2
+ 686:	9e 87       	std	Y+14, r25	; 0x0e
+ 688:	8d 87       	std	Y+13, r24	; 0x0d
+
+			// reset the elapsed time ...
+			this->timers[i].elapsed_time_ms = 0;
+ 68a:	1d 82       	std	Y+5, r1	; 0x05
+ 68c:	1e 82       	std	Y+6, r1	; 0x06
+ 68e:	1f 82       	std	Y+7, r1	; 0x07
+ 690:	18 86       	std	Y+8, r1	; 0x08
+ 692:	e0 cf       	rjmp	.-64     	; 0x654 <state_chart_setTimer+0x74>
+
+00000694 <state_chart_unsetTimer>:
+void state_chart_setTimer(State_chart* handle, const sc_eventid evid, const sc_integer time_ms, const sc_boolean periodic){
+    sc_timer_start(&timer_service, (void*) handle, evid, time_ms, periodic);
+}
+
+//! callback implementation for canceling time events.
+void state_chart_unsetTimer(State_chart* handle, const sc_eventid evid) {
+ 694:	0f 93       	push	r16
+ 696:	1f 93       	push	r17
+ 698:	cf 93       	push	r28
+ 69a:	df 93       	push	r29
+ 69c:	8b 01       	movw	r16, r22
+/*! Cancels a timer for the specified time event. */
+void sc_timer_cancel(sc_timer_service_t *this, const sc_eventid evid) {
+
+	int i;
+
+	for (i = 0; i < this->timer_count; i++) {
+ 69e:	40 91 2c 02 	lds	r20, 0x022C
+ 6a2:	50 91 2d 02 	lds	r21, 0x022D
+ 6a6:	60 91 2e 02 	lds	r22, 0x022E
+ 6aa:	70 91 2f 02 	lds	r23, 0x022F
+ 6ae:	14 16       	cp	r1, r20
+ 6b0:	15 06       	cpc	r1, r21
+ 6b2:	16 06       	cpc	r1, r22
+ 6b4:	17 06       	cpc	r1, r23
+ 6b6:	0c f5       	brge	.+66     	; 0x6fa <state_chart_unsetTimer+0x66>
+		if (this->timers[i].pt_evid == evid) {
+ 6b8:	e0 91 30 02 	lds	r30, 0x0230
+ 6bc:	f0 91 31 02 	lds	r31, 0x0231
+ 6c0:	81 85       	ldd	r24, Z+9	; 0x09
+ 6c2:	92 85       	ldd	r25, Z+10	; 0x0a
+ 6c4:	08 17       	cp	r16, r24
+ 6c6:	19 07       	cpc	r17, r25
+ 6c8:	e9 f0       	breq	.+58     	; 0x704 <state_chart_unsetTimer+0x70>
+ 6ca:	9f 01       	movw	r18, r30
+ 6cc:	21 5f       	subi	r18, 0xF1	; 241
+ 6ce:	3f 4f       	sbci	r19, 0xFF	; 255
+ 6d0:	81 e0       	ldi	r24, 0x01	; 1
+ 6d2:	90 e0       	ldi	r25, 0x00	; 0
+ 6d4:	a0 e0       	ldi	r26, 0x00	; 0
+ 6d6:	b0 e0       	ldi	r27, 0x00	; 0
+ 6d8:	0b c0       	rjmp	.+22     	; 0x6f0 <state_chart_unsetTimer+0x5c>
+ 6da:	f9 01       	movw	r30, r18
+ 6dc:	01 96       	adiw	r24, 0x01	; 1
+ 6de:	a1 1d       	adc	r26, r1
+ 6e0:	b1 1d       	adc	r27, r1
+ 6e2:	21 5f       	subi	r18, 0xF1	; 241
+ 6e4:	3f 4f       	sbci	r19, 0xFF	; 255
+ 6e6:	c1 85       	ldd	r28, Z+9	; 0x09
+ 6e8:	d2 85       	ldd	r29, Z+10	; 0x0a
+ 6ea:	0c 17       	cp	r16, r28
+ 6ec:	1d 07       	cpc	r17, r29
+ 6ee:	51 f0       	breq	.+20     	; 0x704 <state_chart_unsetTimer+0x70>
+/*! Cancels a timer for the specified time event. */
+void sc_timer_cancel(sc_timer_service_t *this, const sc_eventid evid) {
+
+	int i;
+
+	for (i = 0; i < this->timer_count; i++) {
+ 6f0:	84 17       	cp	r24, r20
+ 6f2:	95 07       	cpc	r25, r21
+ 6f4:	a6 07       	cpc	r26, r22
+ 6f6:	b7 07       	cpc	r27, r23
+ 6f8:	81 f7       	brne	.-32     	; 0x6da <state_chart_unsetTimer+0x46>
+}
+
+//! callback implementation for canceling time events.
+void state_chart_unsetTimer(State_chart* handle, const sc_eventid evid) {
+    sc_timer_cancel(&timer_service, evid);
+}
+ 6fa:	df 91       	pop	r29
+ 6fc:	cf 91       	pop	r28
+ 6fe:	1f 91       	pop	r17
+ 700:	0f 91       	pop	r16
+ 702:	08 95       	ret
+	int i;
+
+	for (i = 0; i < this->timer_count; i++) {
+		if (this->timers[i].pt_evid == evid) {
+
+			this->timers[i].pt_evid = NULL;
+ 704:	12 86       	std	Z+10, r1	; 0x0a
+ 706:	11 86       	std	Z+9, r1	; 0x09
+			this->timers[i].handle = NULL;
+ 708:	14 86       	std	Z+12, r1	; 0x0c
+ 70a:	13 86       	std	Z+11, r1	; 0x0b
+}
+
+//! callback implementation for canceling time events.
+void state_chart_unsetTimer(State_chart* handle, const sc_eventid evid) {
+    sc_timer_cancel(&timer_service, evid);
+}
+ 70c:	df 91       	pop	r29
+ 70e:	cf 91       	pop	r28
+ 710:	1f 91       	pop	r17
+ 712:	0f 91       	pop	r16
+ 714:	08 95       	ret
+
+00000716 <sc_timer_setup>:
+void sc_timer_service_init(sc_timer_service_t *tservice,
+	sc_timer_t *timers,
+	sc_integer count,
+	sc_raise_time_event_fp raise_event) {
+
+	tservice->timers = timers;
+ 716:	80 e0       	ldi	r24, 0x00	; 0
+ 718:	91 e0       	ldi	r25, 0x01	; 1
+ 71a:	90 93 31 02 	sts	0x0231, r25
+ 71e:	80 93 30 02 	sts	0x0230, r24
+	tservice->timer_count = count;
+ 722:	ec e2       	ldi	r30, 0x2C	; 44
+ 724:	f2 e0       	ldi	r31, 0x02	; 2
+ 726:	84 e1       	ldi	r24, 0x14	; 20
+ 728:	90 e0       	ldi	r25, 0x00	; 0
+ 72a:	a0 e0       	ldi	r26, 0x00	; 0
+ 72c:	b0 e0       	ldi	r27, 0x00	; 0
+ 72e:	80 83       	st	Z, r24
+ 730:	91 83       	std	Z+1, r25	; 0x01
+ 732:	a2 83       	std	Z+2, r26	; 0x02
+ 734:	b3 83       	std	Z+3, r27	; 0x03
+ 736:	10 92 0a 01 	sts	0x010A, r1
+ 73a:	10 92 09 01 	sts	0x0109, r1
+ 73e:	f0 93 0e 01 	sts	0x010E, r31
+ 742:	e0 93 0d 01 	sts	0x010D, r30
+	for (int i=0; i<count; i++) {
+		tservice->timers->pt_evid = NULL;
+		tservice->timers->service = tservice;
+	}
+
+	tservice->raise_event = raise_event;
+ 746:	8e e3       	ldi	r24, 0x3E	; 62
+ 748:	91 e0       	ldi	r25, 0x01	; 1
+ 74a:	90 93 33 02 	sts	0x0233, r25
+ 74e:	80 93 32 02 	sts	0x0232, r24
+ 752:	08 95       	ret
+
+00000754 <sc_timer_increment>:
+								(sc_raise_time_event_fp) &state_chart_raiseTimeEvent);
+}
+
+
+void sc_timer_increment(const sc_integer time_ms)
+{
+ 754:	ab 01       	movw	r20, r22
+ 756:	bc 01       	movw	r22, r24
+	sc_timer_service_proceed(&timer_service, time_ms);
+ 758:	8c e2       	ldi	r24, 0x2C	; 44
+ 75a:	92 e0       	ldi	r25, 0x02	; 2
+ 75c:	0c 94 33 02 	jmp	0x466	; 0x466 <sc_timer_service_proceed>
+
+00000760 <main>:
+static State_chart sc;
+
+
+int main(void)
+{
+	DDRB |= (1<<5);
+ 760:	25 9a       	sbi	0x04, 5	; 4
+
+	sc_timer_setup();  //setup the statechart timers
+ 762:	0e 94 8b 03 	call	0x716	; 0x716 <sc_timer_setup>
+
+	state_chart_init(&sc); //initialize statechart
+ 766:	84 e3       	ldi	r24, 0x34	; 52
+ 768:	92 e0       	ldi	r25, 0x02	; 2
+ 76a:	0e 94 76 00 	call	0xec	; 0xec <state_chart_init>
+	state_chart_enter(&sc); //enter the statechart
+ 76e:	84 e3       	ldi	r24, 0x34	; 52
+ 770:	92 e0       	ldi	r25, 0x02	; 2
+ 772:	0e 94 7f 00 	call	0xfe	; 0xfe <state_chart_enter>
+
+	while(1)
+	{
+		sc_timer_increment(10);  //increment statechart timer by 10ms
+ 776:	6a e0       	ldi	r22, 0x0A	; 10
+ 778:	70 e0       	ldi	r23, 0x00	; 0
+ 77a:	80 e0       	ldi	r24, 0x00	; 0
+ 77c:	90 e0       	ldi	r25, 0x00	; 0
+ 77e:	0e 94 aa 03 	call	0x754	; 0x754 <sc_timer_increment>
+		state_chart_runCycle(&sc); //"run" the statechart
+ 782:	84 e3       	ldi	r24, 0x34	; 52
+ 784:	92 e0       	ldi	r25, 0x02	; 2
+ 786:	0e 94 b9 00 	call	0x172	; 0x172 <state_chart_runCycle>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 78a:	8f e3       	ldi	r24, 0x3F	; 63
+ 78c:	9c e9       	ldi	r25, 0x9C	; 156
+ 78e:	01 97       	sbiw	r24, 0x01	; 1
+ 790:	f1 f7       	brne	.-4      	; 0x78e <main+0x2e>
+ 792:	00 c0       	rjmp	.+0      	; 0x794 <main+0x34>
+ 794:	00 00       	nop
+ 796:	ef cf       	rjmp	.-34     	; 0x776 <main+0x16>
+
+00000798 <state_chartIface_setLight>:
+
+}
+
+//Functions from State_chartRequired.h
+void state_chartIface_setLight(const State_chart* handle, const sc_boolean lightOn) {
+    if(lightOn)
+ 798:	61 11       	cpse	r22, r1
+ 79a:	02 c0       	rjmp	.+4      	; 0x7a0 <state_chartIface_setLight+0x8>
+        PORTB |= (1<<5);
+    else
+    	PORTB &= ~(1<<5);
+ 79c:	2d 98       	cbi	0x05, 5	; 5
+ 79e:	08 95       	ret
+}
+
+//Functions from State_chartRequired.h
+void state_chartIface_setLight(const State_chart* handle, const sc_boolean lightOn) {
+    if(lightOn)
+        PORTB |= (1<<5);
+ 7a0:	2d 9a       	sbi	0x05, 5	; 5
+ 7a2:	08 95       	ret
+
+000007a4 <_exit>:
+ 7a4:	f8 94       	cli
+
+000007a6 <__stop_program>:
+ 7a6:	ff cf       	rjmp	.-2      	; 0x7a6 <__stop_program>

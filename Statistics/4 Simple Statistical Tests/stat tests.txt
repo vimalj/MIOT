@@ -1,0 +1,7 @@
+
+ 14. A Test on a Mean URL
+ 15. Tests on a Proportion URL
+ 16. Tests on a Variance URL
+ 17. The t-distribution URL
+ 18. Goodness of fit test URL
+ 19. Tests for Independence

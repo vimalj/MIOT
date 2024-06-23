@@ -1,0 +1,85 @@
+RP2		Operating System raspbian stretch with desktop  stretch lite iot console
+
+kernel interface of linux console/ command line and heart of linux
+android id (OS) also based on top of kernel.
+
+mac:00:c1:41:07:0d:bf
+Etcher- sd card flasher.
+wipi-wifi
+
+open hotspot internet
+scan ip through angryip
+putty 
+user: pi
+password: raspberry
+
+:q
+:q!  quit without saving
+
+vi wpa_supplicant.conf
+sudo cat wpa_supplicant.conf
+
+nano text editor
+sudo nano wpa_supplicant.conf
+
+pinout
+
+
+Device ID: Raspi1
+Device Type: Pis
+Token Key:   TMBtxz_i-x57+nL*TZ
+
+
+
+API KEY temp api:
+		a-rh924l-xhzh3w3vec
+
+		RJ3r0zBDKz-)eynSjS
+
+key sigfox:
+		a-rh924l-0uhjnckkkj
+
+		w(yT_&dgTJBm7cA4y(
+
+
+Device ID: 37222F
+Device Type: arduino_temp_sensors
+
+
+
+
+
+
+
+nodered flows: temp sensor sigfox
+
+var myTemp= parseFloat(msg.payload.d.value);
+if (myTemp<10)
+{
+    msg.payload=1;
+}
+
+else
+
+{
+    msg.payload=0;
+}
+
+
+return msg;
+
+[{"id":"fbb52f15.68a5b","type":"tab","label":"Flow 1","disabled":false,"info":""},{"id":"342bb62.40be94a","type":"rpi-gpio out","z":"fbb52f15.68a5b","name":"","pin":"23","set":"","level":"0","freq":"","out":"out","x":600,"y":140,"wires":[]},{"id":"4cfc9325.30a3dc","type":"inject","z":"fbb52f15.68a5b","name":"","topic":"","payload":"1","payloadType":"num","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":270,"y":100,"wires":[["342bb62.40be94a"]]},{"id":"19d12312.410e3d","type":"inject","z":"fbb52f15.68a5b","name":"","topic":"","payload":"0","payloadType":"num","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":250,"y":200,"wires":[["342bb62.40be94a"]]}]
+
+
+[{"id":"fbb52f15.68a5b","type":"tab","label":"Flow 1","disabled":false,"info":""},{"id":"342bb62.40be94a","type":"rpi-gpio out","z":"fbb52f15.68a5b","name":"","pin":"23","set":"","level":"0","freq":"","out":"out","x":600,"y":140,"wires":[]},{"id":"4cfc9325.30a3dc","type":"inject","z":"fbb52f15.68a5b","name":"","topic":"","payload":"1","payloadType":"num","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":270,"y":100,"wires":[["342bb62.40be94a","8a7bd88b.325d58"]]},{"id":"19d12312.410e3d","type":"inject","z":"fbb52f15.68a5b","name":"","topic":"","payload":"0","payloadType":"num","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":270,"y":200,"wires":[["342bb62.40be94a","8a7bd88b.325d58"]]},{"id":"8a7bd88b.325d58","type":"wiotp out","z":"fbb52f15.68a5b","authType":"d","qs":"false","qsDeviceId":"","deviceKey":"15b9b0e7.887f3f","deviceType":"","deviceId":"","event":"event","format":"json","qos":"","name":"","x":570,"y":380,"wires":[]},{"id":"15b9b0e7.887f3f","type":"wiotp-credentials","z":"","name":"","org":"rh924l","serverName":"","devType":"Pis","devId":"Raspi1","keepalive":"60","cleansession":true,"tls":"","usetls":false}]
+
+
+[{"id":"434da1da.89242","type":"function","z":"fbb52f15.68a5b","name":"","func":"\nif (msg.payload==0.1)\n{\n    msg.payload=0;\n}\nreturn msg;","outputs":1,"noerr":0,"x":280,"y":360,"wires":[["342bb62.40be94a"]]}]
+
+
+
+[{"id":"fbb52f15.68a5b","type":"tab","label":"Flow 1","disabled":false,"info":""},{"id":"342bb62.40be94a","type":"rpi-gpio out","z":"fbb52f15.68a5b","name":"","pin":"23","set":"","level":"0","freq":"","out":"out","x":600,"y":140,"wires":[]},{"id":"4cfc9325.30a3dc","type":"inject","z":"fbb52f15.68a5b","name":"","topic":"","payload":"1","payloadType":"num","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":270,"y":100,"wires":[["342bb62.40be94a","8a7bd88b.325d58"]]},{"id":"19d12312.410e3d","type":"inject","z":"fbb52f15.68a5b","name":"","topic":"","payload":"0","payloadType":"num","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":270,"y":200,"wires":[["342bb62.40be94a","8a7bd88b.325d58"]]},{"id":"8a7bd88b.325d58","type":"wiotp out","z":"fbb52f15.68a5b","authType":"d","qs":"false","qsDeviceId":"","deviceKey":"15b9b0e7.887f3f","deviceType":"","deviceId":"","event":"event","format":"json","qos":"","name":"","x":570,"y":380,"wires":[]},{"id":"87fad8cd.240c78","type":"debug","z":"fbb52f15.68a5b","name":"","active":true,"tosidebar":true,"console":false,"tostatus":false,"complete":"false","x":590,"y":520,"wires":[]},{"id":"45b60005.49be7","type":"wiotp in","z":"fbb52f15.68a5b","authType":"d","deviceKey":"15b9b0e7.887f3f","deviceType":"","deviceId":"","command":"+","commandType":"g","qos":0,"name":"","x":170,"y":520,"wires":[["87fad8cd.240c78","434da1da.89242"]]},{"id":"434da1da.89242","type":"function","z":"fbb52f15.68a5b","name":"","func":"\nif (msg.payload==0.1)\n{\n    msg.payload=0;\n}\nreturn msg;","outputs":1,"noerr":0,"x":280,"y":360,"wires":[["342bb62.40be94a"]]},{"id":"15b9b0e7.887f3f","type":"wiotp-credentials","z":null,"name":"","org":"rh924l","serverName":"","devType":"Pis","devId":"Raspi1","keepalive":"60","cleansession":true,"tls":"","usetls":false}]
+
+
+
+[{"id":"372240ba.d3916","type":"tab","label":"Flow 1","disabled":false,"info":""},{"id":"c63aab1a.719408","type":"ibmiot in","z":"372240ba.d3916","authentication":"apiKey","apiKey":"130fbc9f.248933","inputType":"evt","logicalInterface":"","ruleId":"","deviceId":"","applicationId":"","deviceType":"+","eventType":"+","commandType":"","format":"json","name":"IBM IoT","service":"registered","allDevices":true,"allApplications":"","allDeviceTypes":true,"allLogicalInterfaces":"","allEvents":true,"allCommands":"","allFormats":"","qos":0,"x":210,"y":200,"wires":[["3ff7260f.bd148a"]]},{"id":"3ff7260f.bd148a","type":"debug","z":"372240ba.d3916","name":"","active":true,"tosidebar":true,"console":false,"tostatus":false,"complete":"false","x":480,"y":200,"wires":[]},{"id":"3790f4b.9f6bf0c","type":"inject","z":"372240ba.d3916","name":"","topic":"","payload":"1","payloadType":"num","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":310,"y":280,"wires":[["19e589a6.e96e66"]]},{"id":"19e589a6.e96e66","type":"ibmiot out","z":"372240ba.d3916","authentication":"apiKey","apiKey":"130fbc9f.248933","outputType":"cmd","deviceId":"Raspi1","deviceType":"Pis","eventCommandType":"led","format":"json","data":"test","qos":0,"name":"IBM IoT","service":"registered","x":520,"y":300,"wires":[]},{"id":"504be5b7.909cdc","type":"inject","z":"372240ba.d3916","name":"","topic":"","payload":"0.1","payloadType":"num","repeat":"","crontab":"","once":false,"onceDelay":0.1,"x":310,"y":380,"wires":[["19e589a6.e96e66"]]},{"id":"130fbc9f.248933","type":"ibmiot","z":"","name":"temp-api","keepalive":"60","serverName":"","cleansession":true,"appId":"","shared":false}]

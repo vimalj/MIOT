@@ -1,0 +1,213 @@
+Lecture 1------------------------------------------------
+
+message/plaintest---> cipher text
+
+caeser-substitution-cipher romanian crypto
+
+
+dcode.fr
+
+rotational cipher 13 /half
+rot13   decrypted vice versa
+47 cipher in ascii printable
+
+symmetrical-1key
+
+E(k,m)=c
+
+encrypt(key, message= cipher)
+
+asymmetical-2key en-decr
+
+alice-eave-bob
+
+k-m1->m2<-k
+
+
+
+rotor machines (thehibber,enigma)
+gorden welschman secrets of hut 6
+
+brouteforcing
+
+rapidtables.com
+
+
+**questions details 6 threats
+**security measures
+
+
+
+krebs on security  / Denial of service
+
+botnets/OVH co.
+
+
+
+
+
+Lecture 2------------------------------
+
+30 jan 2019
+
+
+
+Hash functions
+
+message digest algorithm
+md5 - 32 characters 128 bit = 2^128 possibilities
+sha1
+sha2
+
+avalanche effect- slight change like . make changes in output hash.
+
+collisions-- same hashes input not equal to out 
+
+pre-img resistance
+
+
+Initialisation vectors
+
+40,000 WEP -- 10 min to break through
+Kali linux 
+
+
+lizard stressor- denial of service attack
+
+checksums hash functions but not cryptographic
+
+hash cannt be reversed, if reversed hashing breaks down
+
+vital for file integrity and passwords
+
+linux-- passwd are stored as hash
+
+
+
+hashcat
+mask--  ?1?1?1?1?1  five character
+
+-1 ?d  bootforce
+-m__  {$salt, $pass}
+
+sha1{$pass $salt}
+
+
+sha1{admin www.google.com}
+
+sha1{vim itb}
+
+salt make attacks difficult.
+
+
+crackstation website
+
+
+Lecture 3-------------------------------------------
+
+6/02/2019
+
+numberstation
+39715
+
+
+c1 = m1 + k
+c2 = m2 + k
+
+c1+c2 = (m1 + k)+(m2+k) = m1 + m2 +k +k
+k+k=phi
+
+
+
+crib dragging
+
+stream cipher- bluetooth, gsm, https, downloads
+
+malleable attack
+
+RSA
+linear shift cipher
+RC4 stream Rivest cipher
+RC5 block
+
+
+css- content scrambling system
+
+lab 3 del mi6
+
+
+
+66475 19274 92028 78494 24146 68542 17507 39398 32348 59378 70636  audio
+
+
+66153 77185 10800 54937 48159 83271 12892 07132 34987 53954 23074
+
+
+22528 86359 02828 22321 62295 41713 29399 36420 66225 02222 93600
+
+22 5 28 8 63 5 9  0 28 28 22 3 21 62 29 5 4 1 7 1 3 29 3 9 9 3 64 20 66 22 5 0 22 22 9 3 60 0  
+D  E L  i  v e r  A L L    D O C   U M  E N T S T O  M O R R O  W B  Y  D  E A D   D R O P  A
+
+at one sir 
+
+
+
+
+
+lecture 5--------------------------20/02/2019
+
+
+rockyou.txt kali
+dackcode.lst    wep/wpa crack
+
+
+
+
+5ghz high freq= low penetration
+2.4ghz low f= high penet.
+
+
+omni yagi
+
+eviltwin attack
+
+zerodays.ie
+
+defcon conferfence
+
+hp ipaq, netstumbler wigle
+kismit kali
+
+
+EAPOL filetr wireless access point key lab4
+aircrack
+
+airplay kali mac address
+
+wep and wpa difference exam ques
+
+
+
+lab4 ipaddr==
+
+ws= tcpstream
+
+
+27/20/2019-------------
+
+Encryption
+Asymmetric and symmetric
+
+list 4 block cipher and explain
+
+Reed Solomon 1960
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)https://moodle.itb.ie/mod/page/view.php?id=163177 -->
+<html dir="ltr" lang="en" xml:lang="en" class="yui3-js-enabled"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>MIOT H6011 - Part Time: Configuring the USART</title>
+    <link rel="icon" href="https://moodle.itb.ie/pluginfile.php/1/theme_adaptable/favicon/1545403320/faviconTU.ico">
+
+    <link rel="stylesheet" href="./MIOT H6011 - Part Time_ Configuring the USART_files/font-awesome.min.css">
+
+    <link href="./MIOT H6011 - Part Time_ Configuring the USART_files/css" rel="stylesheet" type="text/css">
+
+    <link href="./MIOT H6011 - Part Time_ Configuring the USART_files/css" rel="stylesheet" type="text/css">
+
+    <link href="./MIOT H6011 - Part Time_ Configuring the USART_files/css" rel="stylesheet" type="text/css">
+
+<meta name="keywords" content="moodle, MIOT H6011 - Part Time: Configuring the USART">
+<link rel="stylesheet" type="text/css" href="./MIOT H6011 - Part Time_ Configuring the USART_files/combo"><script charset="utf-8" id="yui_3_17_2_1_1547830322723_8" src="./MIOT H6011 - Part Time_ Configuring the USART_files/combo(1)" async=""></script><script charset="utf-8" id="yui_3_17_2_1_1547830322723_18" src="./MIOT H6011 - Part Time_ Configuring the USART_files/combo(2)" async=""></script><script id="firstthemesheet" type="text/css">/** Required in order to fix style inclusion problems in IE with YUI **/</script><link rel="stylesheet" type="text/css" href="./MIOT H6011 - Part Time_ Configuring the USART_files/styles.php">
+<script type="text/javascript">
+//<![CDATA[
+var M = {}; M.yui = {};
+M.pageloadstarttime = new Date();
+M.cfg = {"wwwroot":"https:\/\/moodle.itb.ie","sesskey":"l7fBJZp8ep","themerev":"1545403320","slasharguments":1,"theme":"adaptable","iconsystemmodule":"core\/icon_system_standard","jsrev":"1539012348","admin":"admin","svgicons":true,"usertimezone":"Europe\/Dublin","contextid":194923};var yui1ConfigFn = function(me) {if(/-skin|reset|fonts|grids|base/.test(me.name)){me.type='css';me.path=me.path.replace(/\.js/,'.css');me.path=me.path.replace(/\/yui2-skin/,'/assets/skins/sam/yui2-skin')}};
+var yui2ConfigFn = function(me) {var parts=me.name.replace(/^moodle-/,'').split('-'),component=parts.shift(),module=parts[0],min='-min';if(/-(skin|core)$/.test(me.name)){parts.pop();me.type='css';min=''}
+if(module){var filename=parts.join('-');me.path=component+'/'+module+'/'+filename+min+'.'+me.type}else{me.path=component+'/'+component+'.'+me.type}};
+YUI_config = {"debug":false,"base":"https:\/\/moodle.itb.ie\/lib\/yuilib\/3.17.2\/","comboBase":"https:\/\/moodle.itb.ie\/theme\/yui_combo.php?","combine":true,"filter":null,"insertBefore":"firstthemesheet","groups":{"yui2":{"base":"https:\/\/moodle.itb.ie\/lib\/yuilib\/2in3\/2.9.0\/build\/","comboBase":"https:\/\/moodle.itb.ie\/theme\/yui_combo.php?","combine":true,"ext":false,"root":"2in3\/2.9.0\/build\/","patterns":{"yui2-":{"group":"yui2","configFn":yui1ConfigFn}}},"moodle":{"name":"moodle","base":"https:\/\/moodle.itb.ie\/theme\/yui_combo.php?m\/1539012348\/","combine":true,"comboBase":"https:\/\/moodle.itb.ie\/theme\/yui_combo.php?","ext":false,"root":"m\/1539012348\/","patterns":{"moodle-":{"group":"moodle","configFn":yui2ConfigFn}},"filter":null,"modules":{"moodle-core-chooserdialogue":{"requires":["base","panel","moodle-core-notification"]},"moodle-core-dock":{"requires":["base","node","event-custom","event-mouseenter","event-resize","escape","moodle-core-dock-loader","moodle-core-event"]},"moodle-core-dock-loader":{"requires":["escape"]},"moodle-core-actionmenu":{"requires":["base","event","node-event-simulate"]},"moodle-core-lockscroll":{"requires":["plugin","base-build"]},"moodle-core-checknet":{"requires":["base-base","moodle-core-notification-alert","io-base"]},"moodle-core-blocks":{"requires":["base","node","io","dom","dd","dd-scroll","moodle-core-dragdrop","moodle-core-notification"]},"moodle-core-tooltip":{"requires":["base","node","io-base","moodle-core-notification-dialogue","json-parse","widget-position","widget-position-align","event-outside","cache-base"]},"moodle-core-formchangechecker":{"requires":["base","event-focus","moodle-core-event"]},"moodle-core-maintenancemodetimer":{"requires":["base","node"]},"moodle-core-popuphelp":{"requires":["moodle-core-tooltip"]},"moodle-core-languninstallconfirm":{"requires":["base","node","moodle-core-notification-confirm","moodle-core-notification-alert"]},"moodle-core-dragdrop":{"requires":["base","node","io","dom","dd","event-key","event-focus","moodle-core-notification"]},"moodle-core-notification":{"requires":["moodle-core-notification-dialogue","moodle-core-notification-alert","moodle-core-notification-confirm","moodle-core-notification-exception","moodle-core-notification-ajaxexception"]},"moodle-core-notification-dialogue":{"requires":["base","node","panel","escape","event-key","dd-plugin","moodle-core-widget-focusafterclose","moodle-core-lockscroll"]},"moodle-core-notification-alert":{"requires":["moodle-core-notification-dialogue"]},"moodle-core-notification-confirm":{"requires":["moodle-core-notification-dialogue"]},"moodle-core-notification-exception":{"requires":["moodle-core-notification-dialogue"]},"moodle-core-notification-ajaxexception":{"requires":["moodle-core-notification-dialogue"]},"moodle-core-event":{"requires":["event-custom"]},"moodle-core-handlebars":{"condition":{"trigger":"handlebars","when":"after"}},"moodle-core_availability-form":{"requires":["base","node","event","event-delegate","panel","moodle-core-notification-dialogue","json"]},"moodle-backup-backupselectall":{"requires":["node","event","node-event-simulate","anim"]},"moodle-backup-confirmcancel":{"requires":["node","node-event-simulate","moodle-core-notification-confirm"]},"moodle-course-util":{"requires":["node"],"use":["moodle-course-util-base"],"submodules":{"moodle-course-util-base":{},"moodle-course-util-section":{"requires":["node","moodle-course-util-base"]},"moodle-course-util-cm":{"requires":["node","moodle-course-util-base"]}}},"moodle-course-management":{"requires":["base","node","io-base","moodle-core-notification-exception","json-parse","dd-constrain","dd-proxy","dd-drop","dd-delegate","node-event-delegate"]},"moodle-course-modchooser":{"requires":["moodle-core-chooserdialogue","moodle-course-coursebase"]},"moodle-course-formatchooser":{"requires":["base","node","node-event-simulate"]},"moodle-course-dragdrop":{"requires":["base","node","io","dom","dd","dd-scroll","moodle-core-dragdrop","moodle-core-notification","moodle-course-coursebase","moodle-course-util"]},"moodle-course-categoryexpander":{"requires":["node","event-key"]},"moodle-form-shortforms":{"requires":["node","base","selector-css3","moodle-core-event"]},"moodle-form-dateselector":{"requires":["base","node","overlay","calendar"]},"moodle-form-showadvanced":{"requires":["node","base","selector-css3"]},"moodle-form-passwordunmask":{"requires":[]},"moodle-question-preview":{"requires":["base","dom","event-delegate","event-key","core_question_engine"]},"moodle-question-qbankmanager":{"requires":["node","selector-css3"]},"moodle-question-searchform":{"requires":["base","node"]},"moodle-question-chooser":{"requires":["moodle-core-chooserdialogue"]},"moodle-availability_completion-form":{"requires":["base","node","event","moodle-core_availability-form"]},"moodle-availability_date-form":{"requires":["base","node","event","io","moodle-core_availability-form"]},"moodle-availability_grade-form":{"requires":["base","node","event","moodle-core_availability-form"]},"moodle-availability_group-form":{"requires":["base","node","event","moodle-core_availability-form"]},"moodle-availability_grouping-form":{"requires":["base","node","event","moodle-core_availability-form"]},"moodle-availability_profile-form":{"requires":["base","node","event","moodle-core_availability-form"]},"moodle-qtype_ddimageortext-dd":{"requires":["node","dd","dd-drop","dd-constrain"]},"moodle-qtype_ddimageortext-form":{"requires":["moodle-qtype_ddimageortext-dd","form_filepicker"]},"moodle-qtype_ddmarker-form":{"requires":["moodle-qtype_ddmarker-dd","form_filepicker","graphics","escape"]},"moodle-qtype_ddmarker-dd":{"requires":["node","event-resize","dd","dd-drop","dd-constrain","graphics"]},"moodle-qtype_ddwtos-dd":{"requires":["node","dd","dd-drop","dd-constrain"]},"moodle-mod_assign-history":{"requires":["node","transition"]},"moodle-mod_attendance-groupfilter":{"requires":["base","node"]},"moodle-mod_checklist-linkselect":{"requires":["node","event-valuechange"]},"moodle-mod_forum-subscriptiontoggle":{"requires":["base-base","io-base"]},"moodle-mod_oublog-savecheck":{"requires":["base","node","io","panel","moodle-core-notification-alert"]},"moodle-mod_oublog-tagselector":{"requires":["base","node","autocomplete","autocomplete-filters","autocomplete-highlighters"]},"moodle-mod_quiz-modform":{"requires":["base","node","event"]},"moodle-mod_quiz-questionchooser":{"requires":["moodle-core-chooserdialogue","moodle-mod_quiz-util","querystring-parse"]},"moodle-mod_quiz-util":{"requires":["node","moodle-core-actionmenu"],"use":["moodle-mod_quiz-util-base"],"submodules":{"moodle-mod_quiz-util-base":{},"moodle-mod_quiz-util-slot":{"requires":["node","moodle-mod_quiz-util-base"]},"moodle-mod_quiz-util-page":{"requires":["node","moodle-mod_quiz-util-base"]}}},"moodle-mod_quiz-quizbase":{"requires":["base","node"]},"moodle-mod_quiz-repaginate":{"requires":["base","event","node","io","moodle-core-notification-dialogue"]},"moodle-mod_quiz-toolboxes":{"requires":["base","node","event","event-key","io","moodle-mod_quiz-quizbase","moodle-mod_quiz-util-slot","moodle-core-notification-ajaxexception"]},"moodle-mod_quiz-dragdrop":{"requires":["base","node","io","dom","dd","dd-scroll","moodle-core-dragdrop","moodle-core-notification","moodle-mod_quiz-quizbase","moodle-mod_quiz-util-base","moodle-mod_quiz-util-page","moodle-mod_quiz-util-slot","moodle-course-util"]},"moodle-mod_quiz-autosave":{"requires":["base","node","event","event-valuechange","node-event-delegate","io-form"]},"moodle-mod_scheduler-saveseen":{"requires":["base","node","event"]},"moodle-mod_scheduler-delselected":{"requires":["base","node","event"]},"moodle-mod_scheduler-studentlist":{"requires":["base","node","event","io"]},"moodle-message_airnotifier-toolboxes":{"requires":["base","node","io"]},"moodle-filter_glossary-autolinker":{"requires":["base","node","io-base","json-parse","event-delegate","overlay","moodle-core-event","moodle-core-notification-alert","moodle-core-notification-exception","moodle-core-notification-ajaxexception"]},"moodle-filter_mathjaxloader-loader":{"requires":["moodle-core-event"]},"moodle-editor_atto-rangy":{"requires":[]},"moodle-editor_atto-editor":{"requires":["node","transition","io","overlay","escape","event","event-simulate","event-custom","node-event-html5","node-event-simulate","yui-throttle","moodle-core-notification-dialogue","moodle-core-notification-confirm","moodle-editor_atto-rangy","handlebars","timers","querystring-stringify"]},"moodle-editor_atto-plugin":{"requires":["node","base","escape","event","event-outside","handlebars","event-custom","timers","moodle-editor_atto-menu"]},"moodle-editor_atto-menu":{"requires":["moodle-core-notification-dialogue","node","event","event-custom"]},"moodle-report_eventlist-eventfilter":{"requires":["base","event","node","node-event-delegate","datatable","autocomplete","autocomplete-filters"]},"moodle-report_loglive-fetchlogs":{"requires":["base","event","node","io","node-event-delegate"]},"moodle-report_overviewstats-charts":{"requires":["base","node","charts","charts-legend"]},"moodle-gradereport_grader-gradereporttable":{"requires":["base","node","event","handlebars","overlay","event-hover"]},"moodle-gradereport_history-userselector":{"requires":["escape","event-delegate","event-key","handlebars","io-base","json-parse","moodle-core-notification-dialogue"]},"moodle-tool_capability-search":{"requires":["base","node"]},"moodle-tool_lp-dragdrop-reorder":{"requires":["moodle-core-dragdrop"]},"moodle-tool_monitor-dropdown":{"requires":["base","event","node"]},"moodle-assignfeedback_editpdf-editor":{"requires":["base","event","node","io","graphics","json","event-move","event-resize","transition","querystring-stringify-simple","moodle-core-notification-dialog","moodle-core-notification-alert","moodle-core-notification-exception","moodle-core-notification-ajaxexception"]},"moodle-atto_accessibilitychecker-button":{"requires":["color-base","moodle-editor_atto-plugin"]},"moodle-atto_accessibilityhelper-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_align-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_bold-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_charmap-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_clear-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_collapse-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_emoticon-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_equation-button":{"requires":["moodle-editor_atto-plugin","moodle-core-event","io","event-valuechange","tabview","array-extras"]},"moodle-atto_html-button":{"requires":["moodle-editor_atto-plugin","event-valuechange"]},"moodle-atto_image-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_indent-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_italic-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_link-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_managefiles-usedfiles":{"requires":["node","escape"]},"moodle-atto_managefiles-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_media-button":{"requires":["moodle-editor_atto-plugin","moodle-form-shortforms"]},"moodle-atto_noautolink-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_orderedlist-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_recordrtc-recording":{"requires":["moodle-atto_recordrtc-button"]},"moodle-atto_recordrtc-button":{"requires":["moodle-editor_atto-plugin","moodle-atto_recordrtc-recording"]},"moodle-atto_rtl-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_strike-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_subscript-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_superscript-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_table-button":{"requires":["moodle-editor_atto-plugin","moodle-editor_atto-menu","event","event-valuechange"]},"moodle-atto_title-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_underline-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_undo-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_unorderedlist-button":{"requires":["moodle-editor_atto-plugin"]}}},"gallery":{"name":"gallery","base":"https:\/\/moodle.itb.ie\/lib\/yuilib\/gallery\/","combine":true,"comboBase":"https:\/\/moodle.itb.ie\/theme\/yui_combo.php?","ext":false,"root":"gallery\/1539012348\/","patterns":{"gallery-":{"group":"gallery"}}}},"modules":{"core_filepicker":{"name":"core_filepicker","fullpath":"https:\/\/moodle.itb.ie\/lib\/javascript.php\/1539012348\/repository\/filepicker.js","requires":["base","node","node-event-simulate","json","async-queue","io-base","io-upload-iframe","io-form","yui2-treeview","panel","cookie","datatable","datatable-sort","resize-plugin","dd-plugin","escape","moodle-core_filepicker","moodle-core-notification-dialogue"]},"core_comment":{"name":"core_comment","fullpath":"https:\/\/moodle.itb.ie\/lib\/javascript.php\/1539012348\/comment\/comment.js","requires":["base","io-base","node","json","yui2-animation","overlay","escape"]},"mathjax":{"name":"mathjax","fullpath":"https:\/\/cdnjs.cloudflare.com\/ajax\/libs\/mathjax\/2.7.2\/MathJax.js?delayStartupUntil=configured"}}};
+M.yui.loader = {modules: {}};
+
+//]]>
+</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" value="summary">
+    <meta name="twitter:site" value="Moodle - TU Dublin Blanchardstown Campus">
+    <meta name="twitter:title" value="MIOT H6011 - Part Time: Configuring the USART">
+
+    <!-- Open Graph data -->
+    <meta property="og:title" content="MIOT H6011 - Part Time: Configuring the USART">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://moodle.itb.ie">
+    <meta property="og:site_name" content="Moodle - TU Dublin Blanchardstown Campus">
+
+    <!-- Chrome, Firefox OS and Opera on Android -->
+    <meta name="theme-color" content="#004D6B">
+
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#004D6B">
+
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="#004D6B">
+<script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="core/first" src="./MIOT H6011 - Part Time_ Configuring the USART_files/requirejs.php"></script><script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    config: ["Accessible.js", "Safe.js"],
+    errorSettings: { message: ["!"] },
+    skipStartupTypeset: true,
+    messageStyle: "none"
+});
+</script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="jquery" src="./MIOT H6011 - Part Time_ Configuring the USART_files/javascript.php"></script></head>
+
+<body id="page-mod-page-view" class="format-topics  path-mod path-mod-page safari dir-ltr lang-en yui-skin-sam yui3-skin-sam moodle-itb-ie pagelayout-incourse course-1506 context-194923 cmid-163177 category-58 two-column  has-region-side-post used-region-side-post side-post-only  jsenabled pace-done"><div class="pace  pace-inactive"><div class="pace-progress" data-progress-text="100%" data-progress="99" style="transform: translate3d(100%, 0px, 0px);">
+  <div class="pace-progress-inner"></div>
+</div>
+<div class="pace-activity"></div></div>
+
+<div class="skiplinks">
+    <a href="https://moodle.itb.ie/mod/page/view.php?id=163177#maincontent" class="skip">Skip to main content</a>
+</div><script type="text/javascript" src="./MIOT H6011 - Part Time_ Configuring the USART_files/combo(3)"></script><div id="yui3-css-stamp" style="position: absolute !important; visibility: hidden !important" class=""></div><script type="text/javascript" src="./MIOT H6011 - Part Time_ Configuring the USART_files/jquery-3.2.1.min.js.download"></script>
+<script type="text/javascript" src="./MIOT H6011 - Part Time_ Configuring the USART_files/pace-min.js.download"></script>
+<script type="text/javascript" src="./MIOT H6011 - Part Time_ Configuring the USART_files/jquery-flexslider-min.js.download"></script>
+<script type="text/javascript" src="./MIOT H6011 - Part Time_ Configuring the USART_files/tickerme.js.download"></script>
+<script type="text/javascript" src="./MIOT H6011 - Part Time_ Configuring the USART_files/jquery-easing-min.js.download"></script>
+<script type="text/javascript" src="./MIOT H6011 - Part Time_ Configuring the USART_files/adaptable.js.download"></script>
+<script type="text/javascript" src="./MIOT H6011 - Part Time_ Configuring the USART_files/javascript(1).php"></script>
+<script type="text/javascript">
+//<![CDATA[
+document.body.className += ' jsenabled';
+//]]>
+</script>
+
+
+<div id="page" class="container-fluid fullin showblockicons">
+
+    <header id="page-header-wrapper">
+    <div id="above-header">
+        <div class="clearfix container userhead">
+            <div class="pull-left">
+                <ul class="usermenu2 nav navbar-nav navbar-right"></ul>            </div>
+
+            <div class="headermenu row">
+        <div class="dropdown secondone">
+            <a class="dropdown-toggle usermendrop" data-toggle="dropdown">
+
+<img src="./MIOT H6011 - Part Time_ Configuring the USART_files/f1.jpg" alt="Picture of Vimal Jaswal" title="Picture of Vimal Jaswal" class="userpicture" width="80" height="80">Vimal Jaswal                <span class="fa fa-angle-down"></span>
+            </a>
+
+    <ul class="dropdown-menu usermen" role="menu">
+
+<li><a href="https://moodle.itb.ie/my" title="Dashboard"><i class="fa fa-dashboard"></i>Dashboard</a></li><li><a href="https://moodle.itb.ie/user/profile.php" title="View profile"><i class="fa fa-user"></i>View profile</a></li><li><a href="https://moodle.itb.ie/user/edit.php" title="Edit profile"><i class="fa fa-cog"></i>Edit profile</a></li><li><a href="https://moodle.itb.ie/grade/report/overview/index.php" title="Grades"><i class="fa fa-list-alt"></i>Grades</a></li><li><a href="https://moodle.itb.ie/user/preferences.php" title="Preferences"><i class="fa fa-cog"></i>Preferences</a></li><li><a href="https://moodle.itb.ie/calendar/view.php" title="Calendar"><i class="fa fa-calendar"></i>Calendar</a></li><li><a href="https://moodle.itb.ie/login/logout.php?sesskey=l7fBJZp8ep" title="Log out"><i class="fa fa-sign-out"></i>Log out</a></li>
+    </ul>
+</div>
+</div>
+
+<div style="float: right; position: relative; display: inline; margin-left: 15px; height:20px;">
+</div>
+
+<div class="popover-region collapsed popover-region-notifications" id="nav-notification-popover-container" data-userid="15987" data-region="popover-region">
+    <div class="popover-region-toggle nav-link" data-region="popover-region-toggle" aria-role="button" aria-controls="popover-region-container-5c4204339e1845c4204339825223" aria-haspopup="true" aria-label="Show notification window with no new notifications" tabindex="0">
+                <img class="icon " alt="Toggle notifications menu" title="Toggle notifications menu" src="./MIOT H6011 - Part Time_ Configuring the USART_files/notifications.svg">
+        <div class="count-container hidden" data-region="count-container">0</div>
+
+    </div>
+    <div id="popover-region-container-5c4204339e1845c4204339825223" class="popover-region-container" data-region="popover-region-container" aria-expanded="false" aria-hidden="true" aria-label="Notification window" role="region">
+        <div class="popover-region-header-container">
+            <h3 class="popover-region-header-text" data-region="popover-region-header-text">Notifications</h3>
+            <div class="popover-region-header-actions" data-region="popover-region-header-actions">        <a class="mark-all-read-button" href="https://moodle.itb.ie/mod/page/view.php?id=163177#" title="Mark all as read" data-action="mark-all-read" role="button">
+            <span class="normal-icon"><img class="icon " alt="Mark all as read" title="Mark all as read" src="./MIOT H6011 - Part Time_ Configuring the USART_files/markasread.svg"></span>
+            <span class="loading-icon"><img class="icon " alt="Loading" title="Loading" src="./MIOT H6011 - Part Time_ Configuring the USART_files/loading.gif"></span>
+        </a>
+        <a href="https://moodle.itb.ie/message/notificationpreferences.php?userid=15987" title="Notification preferences">
+            <img class="icon " alt="Notification preferences" title="Notification preferences" src="./MIOT H6011 - Part Time_ Configuring the USART_files/settings.svg">
+        </a>
+</div>
+        </div>
+        <div class="popover-region-content-container" data-region="popover-region-content-container">
+            <div class="popover-region-content" data-region="popover-region-content">
+                        <div class="all-notifications" data-region="all-notifications" role="log" aria-busy="false" aria-atomic="false" aria-relevant="additions"></div>
+        <div class="empty-message" tabindex="0" data-region="empty-message">You have no notifications</div>
+
+            </div>
+            <span class="loading-icon"><img class="icon " alt="Loading" title="Loading" src="./MIOT H6011 - Part Time_ Configuring the USART_files/loading.gif"></span>
+        </div>
+                <a class="see-all-link" href="https://moodle.itb.ie/message/output/popup/notifications.php">
+                    <div class="popover-region-footer-container">
+                        <div class="popover-region-seeall-text">See all</div>
+                    </div>
+                </a>
+    </div>
+</div>    </div>
+</div>
+
+
+
+<div id="page-header" class="clearfix container">
+
+<div id="logocontainer"><a href="https://moodle.itb.ie/"><img src="./MIOT H6011 - Part Time_ Configuring the USART_files/header300x145.jpg" alt="logo" id="logo"></a></div><div id="sitetitle"><h1>MIOT H6011 - Embedde ...</h1><h1></h1></div>
+    <div class="socialbox pull-right">
+<div class="socialbox"><a target="_blank" title="Facebook" href="https://www.facebook.com/itbdublin/"><i class="fa fa-facebook-square
+"></i></a><a target="_blank" title="Twitter" href="https://twitter.com/itbdublin/"><i class="fa fa-twitter-square
+"></i></a><a target="_blank" title="YouTube" href="https://www.youtube.com/user/itbdublin/"><i class="fa fa-youtube"></i></a></div>    </div>
+
+
+        <div id="course-header">
+                    </div>
+    </div>
+
+
+    <div id="navwrap" class="affix-top">
+        <div class="container">
+            <div class="navbar">
+                <nav role="navigation" class="navbar-inner">
+                    <div class="container-fluid">
+                        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </a>
+                        <div class="nav-collapse collapse ">
+                            <ul class="nav navbar-nav"><li><a title="" href="https://moodle.itb.ie/my/index.php"><i class="fa fa-dashboard"></i>  Dashboard</a></li><li><a title="" href="https://moodle.itb.ie/calendar/view.php"><i class="fa fa-calendar"></i> Events</a></li><li class="dropdown"><a href="https://moodle.itb.ie/my/index.php" class="dropdown-toggle" data-toggle="dropdown" title=""><i class="fa fa-briefcase"></i> My Courses</a><ul class="dropdown-menu"><li><a title="ITB Library" href="https://moodle.itb.ie/course/view.php?id=996">ITB Library</a></li><li><a title="MIOT H6011 - Embedded Systems" href="https://moodle.itb.ie/course/view.php?id=1506">MIOT H6011 - Part Time</a></li><li><a title="MIOT H6012 - Information Transmission &amp; Management" href="https://moodle.itb.ie/course/view.php?id=1702">MIOT H6012 - Full Time</a></li><li><a title="MIOT H6013 - Software Engineering (Full Time)" href="https://moodle.itb.ie/course/view.php?id=1706">MIOT H6013 - Full Time</a></li><li><a title="MIOT H6013 - Software Engineering (Part Time)" href="https://moodle.itb.ie/course/view.php?id=1486">MIOT H6013 - Part Time</a></li><li><a title="MIOT H6023 - Research Project (Part 1: Research Methods)" href="https://moodle.itb.ie/course/view.php?id=1531">MIOT H6023 - Part Time</a></li><li><a title="Succeed@TU Dublin Blanchardstown" href="https://moodle.itb.ie/course/view.php?id=997">Succeed@TU Dublin Blanchard...</a></li></ul></li><li class="dropdown"><a href="https://moodle.itb.ie/mod/page/view.php?id=163177" class="dropdown-toggle" data-toggle="dropdown" title=""><i class="fa fa-sitemap"></i><span class="menutitle">This course</span></a><ul class="dropdown-menu"><li><a title="" href="https://moodle.itb.ie/user/index.php?id=1506"><i class="fa fa-users"></i>Participants</a></li><li><a title="" href="https://moodle.itb.ie/grade/report/index.php?id=1506"><img class="icon icon" alt="" src="./MIOT H6011 - Part Time_ Configuring the USART_files/grades.svg">Grades</a></li><li><a href="https://moodle.itb.ie/mod/assign/index.php?id=1506"><img class="icon icon" alt="" src="./MIOT H6011 - Part Time_ Configuring the USART_files/icon.svg">Assignments</a></li><li><a href="https://moodle.itb.ie/mod/forum/index.php?id=1506"><img class="icon icon" alt="" src="./MIOT H6011 - Part Time_ Configuring the USART_files/icon(1).svg">Forums</a></li><li><a href="https://moodle.itb.ie/course/resources.php?id=1506"><img class="icon icon" alt="" src="./MIOT H6011 - Part Time_ Configuring the USART_files/icon(2).svg">Resources</a></li></ul></li></ul>
+        <ul class="nav pull-right">
+        </ul>
+                            <div id="edittingbutton" class="pull-right breadcrumb-button">
+                                                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+</header>
+
+
+<div class="container outercont" id="yui_3_17_2_1_1547830322723_40">
+    <div id="page-content" class="row-fluid">
+        <div id="page-navbar" class="span12"><ul class="breadcrumb"><li><a href="https://moodle.itb.ie/"><i title="Home" class="fa fa-home fa-lg"></i></a></li><span class="separator"><i class="fa-angle-right fa"></i>
+                             </span><li><span tabindex="0">My courses</span></li><span class="separator"><i class="fa-angle-right fa"></i>
+                             </span><li><span itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a itemprop="url" title="MIOT H6011 - Embedded Systems" href="https://moodle.itb.ie/course/view.php?id=1506"><span itemprop="title">MIOT H6011 - Embedded Systems</span></a></span></li><span class="separator"><i class="fa-angle-right fa"></i>
+                             </span><li><span tabindex="0">USART Resources</span></li><span class="separator"><i class="fa-angle-right fa"></i>
+                             </span><li class="lastli"><span itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a itemprop="url" title="Page" href="https://moodle.itb.ie/mod/page/view.php?id=163177"><span itemprop="title">Configuring the USART</span></a></span></li></ul></div>
+        <section id="region-main" class="span9 desktop-first-column">
+            <span class="notifications" id="user-notifications"></span><div role="main" id="yui_3_17_2_1_1547830322723_39"><span id="maincontent"></span><h2>Configuring the USART</h2><div class="box generalbox center clearfix" id="yui_3_17_2_1_1547830322723_38"><div class="no-overflow" id="yui_3_17_2_1_1547830322723_37"><p><br></p><p id="yui_3_17_2_1_1547830322723_36"><img src="./MIOT H6011 - Part Time_ Configuring the USART_files/UCSR0B.png" alt="UCSR0B" width="1912" height="260" style="vertical-align:text-bottom; margin: 0 .5em;" class="img-responsive" id="yui_3_17_2_1_1547830322723_35"><br></p><p><br></p><p><img src="./MIOT H6011 - Part Time_ Configuring the USART_files/UCSR0A.png" alt="UCSR0A" width="1926" height="296" style="vertical-align:text-bottom; margin: 0 .5em;" class="img-responsive"><br></p><p><br></p><p><img src="./MIOT H6011 - Part Time_ Configuring the USART_files/UDR0.png" alt="UDR0" width="1944" height="320" style="vertical-align:text-bottom; margin: 0 .5em;" class="img-responsive"><br></p><p><br></p><p><img src="./MIOT H6011 - Part Time_ Configuring the USART_files/UCSR0C.png" alt="UCSR0C" width="1924" height="260" style="vertical-align:text-bottom; margin: 0 .5em;" class="img-responsive"><br></p><p><br></p><p><img src="./MIOT H6011 - Part Time_ Configuring the USART_files/ModeSelectBits.png" alt="Mode Select bits" width="1686" height="540" style="vertical-align:text-bottom; margin: 0 .5em;" class="img-responsive"><br></p><p><br></p><p><img src="./MIOT H6011 - Part Time_ Configuring the USART_files/ParitySelectBits.png" alt="Parity Select bits" width="1662" height="410" style="vertical-align:text-bottom; margin: 0 .5em;" class="img-responsive"><br></p><p><br></p><p><img src="./MIOT H6011 - Part Time_ Configuring the USART_files/StopBitsSelectBits.png" alt="Stop Bits Selection" width="1680" height="278" style="vertical-align:text-bottom; margin: 0 .5em;" class="img-responsive"><br></p><p><br></p><p><img src="./MIOT H6011 - Part Time_ Configuring the USART_files/DataSizeSelectBits.png" alt="Data Size Select bits" width="1720" height="692" style="vertical-align:text-bottom; margin: 0 .5em;" class="img-responsive"><br></p><p><br></p><p><img src="./MIOT H6011 - Part Time_ Configuring the USART_files/BaudRateSettingReg.png" alt="Baud Rate Setting Register" width="1892" height="452" style="vertical-align:text-bottom; margin: 0 .5em;" class="img-responsive"><br></p><p><br></p><p><img src="./MIOT H6011 - Part Time_ Configuring the USART_files/BaudRateFormula.png" alt="Baud Rate Formula" width="1664" height="584" style="vertical-align:text-bottom; margin: 0 .5em;" class="img-responsive"><br></p><p><br></p><p><img src="./MIOT H6011 - Part Time_ Configuring the USART_files/BaudRateRegValuesTable.png" alt="Baud Rate Register Values Table" width="2032" height="468" style="vertical-align:text-bottom; margin: 0 .5em;" class="img-responsive"><br></p><p><br></p></div></div><div class="modified">Last modified: Thursday, 2 March 2017, 12:11 PM</div></div>        </section>
+
+        <aside id="block-region-side-post" class="span3 block-region" data-blockregion="side-post" data-droptarget="1"><a class="skip skip-block" id="fsb-2" href="https://moodle.itb.ie/mod/page/view.php?id=163177#sb-2">Skip Navigation</a><div id="inst15486" class="block_navigation  block" role="navigation" data-block="navigation" data-instanceid="15486" aria-labelledby="instance-15486-header"><div class="header"><div class="title"><div class="block_action"></div><h2 id="instance-15486-header">Navigation</h2></div></div><div class="content"><ul class="block_tree list" role="tree" data-ajax-loader="block_navigation/nav_loader"><li class="type_unknown depth_1 contains_branch" aria-labelledby="label_1_1" tabindex="-1"><p class="tree_item branch navigation_node" role="treeitem" aria-expanded="true" aria-owns="random5c420433982521_group" data-collapsible="false" tabindex="0" aria-selected="true"><a tabindex="-1" id="label_1_1" href="https://moodle.itb.ie/">Home</a></p><ul id="random5c420433982521_group" role="group" tabindex="-1"><li class="type_setting depth_2 item_with_icon" aria-labelledby="label_2_2" tabindex="-1"><p class="tree_item hasicon" role="treeitem" tabindex="-1" aria-selected="false"><a tabindex="-1" id="label_2_2" href="https://moodle.itb.ie/my/"><img class="icon navicon" alt="" src="./MIOT H6011 - Part Time_ Configuring the USART_files/dashboard.svg" tabindex="-1"><span class="item-content-wrap" tabindex="-1">Dashboard</span></a></p></li><li class="type_course depth_2 contains_branch" aria-labelledby="label_2_3" tabindex="-1"><p class="tree_item branch" role="treeitem" aria-expanded="false" aria-owns="random5c420433982523_group" tabindex="-1" aria-selected="false"><span tabindex="-1" id="label_2_3" title="Moodle - TU Dublin Blanchardstown Campus">Moodle - TU Dublin Blanchardstown Campus</span></p><ul id="random5c420433982523_group" role="group" aria-hidden="true" tabindex="-1"><li class="type_unknown depth_3 item_with_icon" aria-labelledby="label_3_5" tabindex="-1"><p class="tree_item hasicon" role="treeitem" tabindex="-1" aria-selected="false"><a tabindex="-1" id="label_3_5" href="https://moodle.itb.ie/blog/index.php"><img class="icon navicon" alt="" src="./MIOT H6011 - Part Time_ Configuring the USART_files/navigationitem.svg" tabindex="-1"><span class="item-content-wrap" tabindex="-1">Site blogs</span></a></p></li><li class="type_custom depth_3 item_with_icon" aria-labelledby="label_3_6" tabindex="-1"><p class="tree_item hasicon" role="treeitem" tabindex="-1" aria-selected="false"><a tabindex="-1" id="label_3_6" href="https://moodle.itb.ie/badges/view.php?type=1"><img class="icon navicon" alt="" src="./MIOT H6011 - Part Time_ Configuring the USART_files/navigationitem.svg" tabindex="-1"><span class="item-content-wrap" tabindex="-1">Site badges</span></a></p></li><li class="type_setting depth_3 item_with_icon" aria-labelledby="label_3_7" tabindex="-1"><p class="tree_item hasicon" role="treeitem" tabindex="-1" aria-selected="false"><a tabindex="-1" id="label_3_7" href="https://moodle.itb.ie/tag/search.php"><img class="icon navicon" alt="" src="./MIOT H6011 - Part Time_ Configuring the USART_files/navigationitem.svg" tabindex="-1"><span class="item-content-wrap" tabindex="-1">Tags</span></a></p></li><li class="type_custom depth_3 item_with_icon" aria-labelledby="label_3_8" tabindex="-1"><p class="tree_item hasicon" role="treeitem" tabindex="-1" aria-selected="false"><a tabindex="-1" id="label_3_8" href="https://moodle.itb.ie/calendar/view.php?view=month&amp;course=1506"><img class="icon navicon" alt="" src="./MIOT H6011 - Part Time_ Configuring the USART_files/calendar.svg" tabindex="-1"><span class="item-content-wrap" tabindex="-1">Calendar</span></a></p></li></ul></li><li class="type_system depth_2 contains_branch" aria-labelledby="label_2_11" tabindex="-1"><p class="tree_item branch canexpand" role="treeitem" aria-expanded="true" aria-owns="random5c420433982528_group" tabindex="-1" aria-selected="false"><span tabindex="-1" id="label_2_11">My courses</span></p><ul id="random5c420433982528_group" role="group" tabindex="-1"><li class="type_course depth_3 contains_branch" aria-labelledby="label_3_12" tabindex="-1"><p class="tree_item branch" role="treeitem" id="expandable_branch_20_996" aria-expanded="false" data-requires-ajax="true" data-loaded="false" data-node-id="expandable_branch_20_996" data-node-key="996" data-node-type="20" tabindex="-1" aria-selected="false"><a tabindex="-1" id="label_3_12" title="ITB Library" href="https://moodle.itb.ie/course/view.php?id=996">ITB Library</a></p></li><li class="type_course depth_3 contains_branch" aria-labelledby="label_3_13" tabindex="-1"><p class="tree_item branch canexpand" role="treeitem" aria-expanded="true" aria-owns="random5c420433982529_group" tabindex="-1" aria-selected="false"><a tabindex="-1" id="label_3_13" title="MIOT H6011 - Embedded Systems" href="https://moodle.itb.ie/course/view.php?id=1506">MIOT H6011 - Embedded Systems</a></p><ul id="random5c420433982529_group" role="group" tabindex="-1"><li class="type_container depth_4 contains_branch" aria-labelledby="label_4_14" tabindex="-1"><p class="tree_item branch" role="treeitem" aria-expanded="false" aria-owns="random5c4204339825210_group" tabindex="-1" aria-selected="false"><a tabindex="-1" id="label_4_14" href="https://moodle.itb.ie/user/index.php?id=1506">Participants</a></p><ul id="random5c4204339825210_group" role="group" aria-hidden="true" tabindex="-1"><li class="type_setting depth_5 item_with_icon" aria-labelledby="label_5_15" tabindex="-1"><p class="tree_item hasicon" role="treeitem" tabindex="-1" aria-selected="false"><a tabindex="-1" id="label_5_15" href="https://moodle.itb.ie/blog/index.php?courseid=1506"><img class="icon navicon" alt="" src="./MIOT H6011 - Part Time_ Configuring the USART_files/navigationitem.svg" tabindex="-1"><span class="item-content-wrap" tabindex="-1">Course blogs</span></a></p></li><li class="type_user depth_5 item_with_icon" aria-labelledby="label_5_16" tabindex="-1"><p class="tree_item hasicon" role="treeitem" tabindex="-1" aria-selected="false"><a tabindex="-1" id="label_5_16" href="https://moodle.itb.ie/user/view.php?id=15987&amp;course=1506"><img class="icon navicon" alt="" src="./MIOT H6011 - Part Time_ Configuring the USART_files/navigationitem.svg" tabindex="-1"><span class="item-content-wrap" tabindex="-1">Vimal Jaswal</span></a></p></li></ul></li><li class="type_setting depth_4 item_with_icon" aria-labelledby="label_4_17" tabindex="-1"><p class="tree_item hasicon" role="treeitem" tabindex="-1" aria-selected="false"><a tabindex="-1" id="label_4_17" href="https://moodle.itb.ie/badges/view.php?type=2&amp;id=1506"><img class="icon navicon" alt="Badges" title="Badges" src="./MIOT H6011 - Part Time_ Configuring the USART_files/badge.svg" tabindex="-1"><span class="item-content-wrap" tabindex="-1">Badges</span></a></p></li><li class="type_setting depth_4 item_with_icon" aria-labelledby="label_4_18" tabindex="-1"><p class="tree_item hasicon" role="treeitem" tabindex="-1" aria-selected="false"><a tabindex="-1" id="label_4_18" href="https://moodle.itb.ie/admin/tool/lp/coursecompetencies.php?courseid=1506"><img class="icon navicon" alt="" src="./MIOT H6011 - Part Time_ Configuring the USART_files/competencies.svg" tabindex="-1"><span class="item-content-wrap" tabindex="-1">Competencies</span></a></p></li><li class="type_structure depth_4 contains_branch" aria-labelledby="label_4_19" tabindex="-1"><p class="tree_item branch" role="treeitem" id="expandable_branch_30_26482" aria-expanded="false" data-requires-ajax="true" data-loaded="false" data-node-id="expandable_branch_30_26482" data-node-key="26482" data-node-type="30" tabindex="-1" aria-selected="false"><span tabindex="-1" id="label_4_19">General</span></p></li><li class="type_structure depth_4 contains_branch" aria-labelledby="label_4_20" tabindex="-1"><p class="tree_item branch" role="treeitem" id="expandable_branch_30_28866" aria-expanded="false" data-requires-ajax="true" data-loaded="false" data-node-id="expandable_branch_30_28866" data-node-key="28866" data-node-type="30" tabindex="-1" aria-selected="false"><span tabindex="-1" id="label_4_20">Notes</span></p></li><li class="type_structure depth_4 contains_branch" aria-labelledby="label_4_21" tabindex="-1"><p class="tree_item branch" role="treeitem" id="expandable_branch_30_28880" aria-expanded="false" data-requires-ajax="true" data-loaded="false" data-node-id="expandable_branch_30_28880" data-node-key="28880" data-node-type="30" tabindex="-1" aria-selected="false"><span tabindex="-1" id="label_4_21">Tools</span></p></li><li class="type_structure depth_4 contains_branch" aria-labelledby="label_4_22" tabindex="-1"><p class="tree_item branch" role="treeitem" id="expandable_branch_30_28898" aria-expanded="false" data-requires-ajax="true" data-loaded="false" data-node-id="expandable_branch_30_28898" data-node-key="28898" data-node-type="30" tabindex="-1" aria-selected="false"><span tabindex="-1" id="label_4_22">Books</span></p></li><li class="type_structure depth_4 contains_branch" aria-labelledby="label_4_23" tabindex="-1"><p class="tree_item branch" role="treeitem" id="expandable_branch_30_29087" aria-expanded="false" data-requires-ajax="true" data-loaded="false" data-node-id="expandable_branch_30_29087" data-node-key="29087" data-node-type="30" tabindex="-1" aria-selected="false"><span tabindex="-1" id="label_4_23">Resources</span></p></li><li class="type_structure depth_4 contains_branch" aria-labelledby="label_4_24" tabindex="-1"><p class="tree_item branch" role="treeitem" id="expandable_branch_30_32694" aria-expanded="false" data-requires-ajax="true" data-loaded="false" data-node-id="expandable_branch_30_32694" data-node-key="32694" data-node-type="30" tabindex="-1" aria-selected="false"><span tabindex="-1" id="label_4_24">CAs</span></p></li><li class="type_structure depth_4 contains_branch" aria-labelledby="label_4_25" tabindex="-1"><p class="tree_item branch" role="treeitem" id="expandable_branch_30_26901" aria-expanded="false" data-requires-ajax="true" data-loaded="false" data-node-id="expandable_branch_30_26901" data-node-key="26901" data-node-type="30" tabindex="-1" aria-selected="false"><span tabindex="-1" id="label_4_25">LCDs</span></p></li><li class="type_structure depth_4 contains_branch" aria-labelledby="label_4_26" tabindex="-1"><p class="tree_item branch" role="treeitem" id="expandable_branch_30_29373" aria-expanded="false" data-requires-ajax="true" data-loaded="false" data-node-id="expandable_branch_30_29373" data-node-key="29373" data-node-type="30" tabindex="-1" aria-selected="false"><span tabindex="-1" id="label_4_26">Keypad Resources</span></p></li><li class="type_structure depth_4 contains_branch" aria-labelledby="label_4_27" tabindex="-1"><p class="tree_item branch" role="treeitem" id="expandable_branch_30_32983" aria-expanded="false" data-requires-ajax="true" data-loaded="false" data-node-id="expandable_branch_30_32983" data-node-key="32983" data-node-type="30" tabindex="-1" aria-selected="false"><span tabindex="-1" id="label_4_27">74HC595</span></p></li><li class="type_structure depth_4 contains_branch" aria-labelledby="label_4_28" tabindex="-1"><p class="tree_item branch" role="treeitem" aria-expanded="true" aria-owns="random5c4204339825215_group" tabindex="-1" aria-selected="false"><span tabindex="-1" id="label_4_28">USART Resources</span></p><ul id="random5c4204339825215_group" role="group" tabindex="-1"><li class="type_activity depth_5 item_with_icon" aria-labelledby="label_5_29" tabindex="-1"><p class="tree_item hasicon" role="treeitem" tabindex="-1" aria-selected="false"><a href="https://moodle.itb.ie/mod/url/view.php?id=163175" id="label_5_29" class="" tabindex="-1" title="URL"><img class="icon navicon" alt="URL" title="URL" src="./MIOT H6011 - Part Time_ Configuring the USART_files/icon(3).svg" tabindex="-1"><span class="item-content-wrap" tabindex="-1">Serial (RS232 &amp; USART) Introduction</span></a></p></li><li class="type_activity depth_5 item_with_icon" aria-labelledby="label_5_30" tabindex="-1"><p class="tree_item hasicon" role="treeitem" tabindex="-1" aria-selected="false"><a href="https://moodle.itb.ie/mod/resource/view.php?id=163164" id="label_5_30" class="" tabindex="-1" title="File"><img class="icon navicon" alt="File" title="File" src="./MIOT H6011 - Part Time_ Configuring the USART_files/pdf-24.png" tabindex="-1"><span class="item-content-wrap" tabindex="-1">Basic USART Tutorial</span></a></p></li><li class="type_activity depth_5 item_with_icon current_branch" aria-labelledby="label_5_31" tabindex="-1"><p class="tree_item hasicon active_tree_node" role="treeitem" tabindex="-1" aria-selected="false"><a tabindex="-1" id="label_5_31" title="Page" href="https://moodle.itb.ie/mod/page/view.php?id=163177"><img class="icon navicon" alt="Page" title="Page" src="./MIOT H6011 - Part Time_ Configuring the USART_files/icon(4).svg" tabindex="-1"><span class="item-content-wrap" tabindex="-1">Configuring the USART</span></a></p></li><li class="type_activity depth_5 item_with_icon" aria-labelledby="label_5_32" tabindex="-1"><p class="tree_item hasicon" role="treeitem" tabindex="-1" aria-selected="false"><a href="https://moodle.itb.ie/mod/url/view.php?id=163168" id="label_5_32" class="" tabindex="-1" title="URL"><img class="icon navicon" alt="URL" title="URL" src="./MIOT H6011 - Part Time_ Configuring the USART_files/icon(3).svg" tabindex="-1"><span class="item-content-wrap" tabindex="-1">Coolterm</span></a></p></li><li class="type_activity depth_5 item_with_icon" aria-labelledby="label_5_33" tabindex="-1"><p class="tree_item hasicon" role="treeitem" tabindex="-1" aria-selected="false"><a href="https://moodle.itb.ie/mod/url/view.php?id=163170" id="label_5_33" class="" tabindex="-1" title="URL"><img class="icon navicon" alt="URL" title="URL" src="./MIOT H6011 - Part Time_ Configuring the USART_files/icon(3).svg" tabindex="-1"><span class="item-content-wrap" tabindex="-1">USART Programming Video</span></a></p></li><li class="type_activity depth_5 item_with_icon" aria-labelledby="label_5_34" tabindex="-1"><p class="tree_item hasicon" role="treeitem" tabindex="-1" aria-selected="false"><a href="https://moodle.itb.ie/mod/resource/view.php?id=163167" id="label_5_34" class="" tabindex="-1" title="File"><img class="icon navicon" alt="File" title="File" src="./MIOT H6011 - Part Time_ Configuring the USART_files/pdf-24.png" tabindex="-1"><span class="item-content-wrap" tabindex="-1">Interrupt Driven USART Tutorial</span></a></p></li></ul></li><li class="type_structure depth_4 contains_branch" aria-labelledby="label_4_35" tabindex="-1"><p class="tree_item branch" role="treeitem" id="expandable_branch_30_29278" aria-expanded="false" data-requires-ajax="true" data-loaded="false" data-node-id="expandable_branch_30_29278" data-node-key="29278" data-node-type="30" tabindex="-1" aria-selected="false"><span tabindex="-1" id="label_4_35">Timer Resources</span></p></li><li class="type_structure depth_4 contains_branch" aria-labelledby="label_4_36" tabindex="-1"><p class="tree_item branch" role="treeitem" id="expandable_branch_30_29325" aria-expanded="false" data-requires-ajax="true" data-loaded="false" data-node-id="expandable_branch_30_29325" data-node-key="29325" data-node-type="30" tabindex="-1" aria-selected="false"><span tabindex="-1" id="label_4_36">ADC Resources</span></p></li><li class="type_structure depth_4 contains_branch" aria-labelledby="label_4_37" tabindex="-1"><p class="tree_item branch" role="treeitem" id="expandable_branch_30_27062" aria-expanded="false" data-requires-ajax="true" data-loaded="false" data-node-id="expandable_branch_30_27062" data-node-key="27062" data-node-type="30" tabindex="-1" aria-selected="false"><span tabindex="-1" id="label_4_37">Cloud Connectivity Resources</span></p></li><li class="type_structure depth_4 contains_branch" aria-labelledby="label_4_38" tabindex="-1"><p class="tree_item branch" role="treeitem" id="expandable_branch_30_29449" aria-expanded="false" data-requires-ajax="true" data-loaded="false" data-node-id="expandable_branch_30_29449" data-node-key="29449" data-node-type="30" tabindex="-1" aria-selected="false"><span tabindex="-1" id="label_4_38">SigFox Connectivity</span></p></li><li class="type_structure depth_4 contains_branch" aria-labelledby="label_4_39" tabindex="-1"><p class="tree_item branch" role="treeitem" id="expandable_branch_30_33463" aria-expanded="false" data-requires-ajax="true" data-loaded="false" data-node-id="expandable_branch_30_33463" data-node-key="33463" data-node-type="30" tabindex="-1" aria-selected="false"><span tabindex="-1" id="label_4_39">Raspberry Pi Resources</span></p></li></ul></li><li class="type_course depth_3 contains_branch" aria-labelledby="label_3_40" tabindex="-1"><p class="tree_item branch" role="treeitem" id="expandable_branch_20_1702" aria-expanded="false" data-requires-ajax="true" data-loaded="false" data-node-id="expandable_branch_20_1702" data-node-key="1702" data-node-type="20" tabindex="-1" aria-selected="false"><a tabindex="-1" id="label_3_40" title="MIOT H6012 - Information Transmission &amp; Management" href="https://moodle.itb.ie/course/view.php?id=1702">MIOT H6012 - Information Transmission &amp; Manage...</a></p></li><li class="type_course depth_3 contains_branch" aria-labelledby="label_3_41" tabindex="-1"><p class="tree_item branch" role="treeitem" id="expandable_branch_20_1706" aria-expanded="false" data-requires-ajax="true" data-loaded="false" data-node-id="expandable_branch_20_1706" data-node-key="1706" data-node-type="20" tabindex="-1" aria-selected="false"><a tabindex="-1" id="label_3_41" title="MIOT H6013 - Software Engineering (Full Time)" href="https://moodle.itb.ie/course/view.php?id=1706">MIOT H6013 - Software Engineering (Full Time)</a></p></li><li class="type_course depth_3 contains_branch" aria-labelledby="label_3_42" tabindex="-1"><p class="tree_item branch" role="treeitem" id="expandable_branch_20_1486" aria-expanded="false" data-requires-ajax="true" data-loaded="false" data-node-id="expandable_branch_20_1486" data-node-key="1486" data-node-type="20" tabindex="-1" aria-selected="false"><a tabindex="-1" id="label_3_42" title="MIOT H6013 - Software Engineering (Part Time)" href="https://moodle.itb.ie/course/view.php?id=1486">MIOT H6013 - Software Engineering (Part Time)</a></p></li><li class="type_course depth_3 contains_branch" aria-labelledby="label_3_43" tabindex="-1"><p class="tree_item branch" role="treeitem" id="expandable_branch_20_1531" aria-expanded="false" data-requires-ajax="true" data-loaded="false" data-node-id="expandable_branch_20_1531" data-node-key="1531" data-node-type="20" tabindex="-1" aria-selected="false"><a tabindex="-1" id="label_3_43" title="MIOT H6023 - Research Project (Part 1: Research Methods)" href="https://moodle.itb.ie/course/view.php?id=1531">MIOT H6023 - Research Project (Part 1: Research Me...</a></p></li><li class="type_course depth_3 contains_branch" aria-labelledby="label_3_44" tabindex="-1"><p class="tree_item branch" role="treeitem" id="expandable_branch_20_997" aria-expanded="false" data-requires-ajax="true" data-loaded="false" data-node-id="expandable_branch_20_997" data-node-key="997" data-node-type="20" tabindex="-1" aria-selected="false"><a tabindex="-1" id="label_3_44" title="Succeed@TU Dublin Blanchardstown" href="https://moodle.itb.ie/course/view.php?id=997">Succeed@TU Dublin Blanchardstown</a></p></li></ul></li></ul></li></ul></div></div><span class="skip-block-to" id="sb-2"></span></aside>    </div>
+</div>
+
+
+<footer id="page-footer">
+
+<div id="course-footer"></div>
+                <div class="container blockplace1"><div class="row-fluid"><div class="left-col span4"><img src="./MIOT H6011 - Part Time_ Configuring the USART_files/TUD_White_small.png" alt="" class="img-responsive atto_image_button_text-bottom" width="400" height="252"><br><p><br></p></div><div class="left-col span4"><p>&nbsp;</p><p><br></p></div><div class="left-col span4"><h3>Contact Us</h3><p style="text-align:left;">TU Dublin - Blanchardstown Campus, <br></p><p style="text-align:left;">Blanchardstown Road North, Dublin 15<br></p>
+<p style="text-align:left;"><i class="fa fa-phone-square"></i>&nbsp;Phone: 01-8851000<br><i class="fa fa-envelope"></i>&nbsp;E-mail:&nbsp;<a href="mailto:info@itb.ie">info@itb.ie</a></p></div></div></div>        <div class="container">
+            <div class="row-fluid">
+                <div class="span12 pagination-centered">
+<div class="socialbox"><a target="_blank" title="Facebook" href="https://www.facebook.com/itbdublin/"><i class="fa fa-facebook-square
+"></i></a><a target="_blank" title="Twitter" href="https://twitter.com/itbdublin/"><i class="fa fa-twitter-square
+"></i></a><a target="_blank" title="YouTube" href="https://www.youtube.com/user/itbdublin/"><i class="fa fa-youtube"></i></a></div>                </div>
+            </div>
+        </div>
+
+    <div class="info container2 clearfix">
+        <div class="container">
+            <div class="row-fluid">
+                <div class="span8">
+                </div>
+
+                <div class="span4">
+                    <a href="https://download.moodle.org/mobile?version=2018051701&amp;lang=en&amp;iosappid=633359593&amp;androidappid=com.moodle.moodlemobile">Get the mobile app</a>                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<a class="back-to-top" href="https://moodle.itb.ie/mod/page/view.php?id=163177#top" style="display: none;"><i class="fa fa-angle-up "></i></a>
+
+
+<script type="text/javascript">
+//<![CDATA[
+var require = {
+    baseUrl : 'https://moodle.itb.ie/lib/requirejs.php/1539012348/',
+    // We only support AMD modules with an explicit define() statement.
+    enforceDefine: true,
+    skipDataMain: true,
+    waitSeconds : 0,
+
+    paths: {
+        jquery: 'https://moodle.itb.ie/lib/javascript.php/1539012348/lib/jquery/jquery-3.2.1.min',
+        jqueryui: 'https://moodle.itb.ie/lib/javascript.php/1539012348/lib/jquery/ui-1.12.1/jquery-ui.min',
+        jqueryprivate: 'https://moodle.itb.ie/lib/javascript.php/1539012348/lib/requirejs/jquery-private'
+    },
+
+    // Custom jquery config map.
+    map: {
+      // '*' means all modules will get 'jqueryprivate'
+      // for their 'jquery' dependency.
+      '*': { jquery: 'jqueryprivate' },
+      // Stub module for 'process'. This is a workaround for a bug in MathJax (see MDL-60458).
+      '*': { process: 'core/first' },
+
+      // 'jquery-private' wants the real jQuery module
+      // though. If this line was not here, there would
+      // be an unresolvable cyclic dependency.
+      jqueryprivate: { jquery: 'jquery' }
+    }
+};
+
+//]]>
+</script>
+<script type="text/javascript" src="./MIOT H6011 - Part Time_ Configuring the USART_files/javascript(2).php"></script>
+<script type="text/javascript">
+//<![CDATA[
+require(['core/first'], function() {
+;
+require(["media_videojs/loader"], function(loader) {
+    loader.setUp(function(videojs) {
+        videojs.options.flash.swf = "https://moodle.itb.ie/media/player/videojs/videojs/video-js.swf";
+videojs.addLanguage("en",{
+ "Audio Player": "Audio Player",
+ "Video Player": "Video Player",
+ "Play": "Play",
+ "Pause": "Pause",
+ "Replay": "Replay",
+ "Current Time": "Current Time",
+ "Duration Time": "Duration Time",
+ "Remaining Time": "Remaining Time",
+ "Stream Type": "Stream Type",
+ "LIVE": "LIVE",
+ "Loaded": "Loaded",
+ "Progress": "Progress",
+ "Progress Bar": "Progress Bar",
+ "progress bar timing: currentTime={1} duration={2}": "{1} of {2}",
+ "Fullscreen": "Fullscreen",
+ "Non-Fullscreen": "Non-Fullscreen",
+ "Mute": "Mute",
+ "Unmute": "Unmute",
+ "Playback Rate": "Playback Rate",
+ "Subtitles": "Subtitles",
+ "subtitles off": "subtitles off",
+ "Captions": "Captions",
+ "captions off": "captions off",
+ "Chapters": "Chapters",
+ "Descriptions": "Descriptions",
+ "descriptions off": "descriptions off",
+ "Audio Track": "Audio Track",
+ "Volume Level": "Volume Level",
+ "You aborted the media playback": "You aborted the media playback",
+ "A network error caused the media download to fail part-way.": "A network error caused the media download to fail part-way.",
+ "The media could not be loaded, either because the server or network failed or because the format is not supported.": "The media could not be loaded, either because the server or network failed or because the format is not supported.",
+ "The media playback was aborted due to a corruption problem or because the media used features your browser did not support.": "The media playback was aborted due to a corruption problem or because the media used features your browser did not support.",
+ "No compatible source was found for this media.": "No compatible source was found for this media.",
+ "The media is encrypted and we do not have the keys to decrypt it.": "The media is encrypted and we do not have the keys to decrypt it.",
+ "Play Video": "Play Video",
+ "Close": "Close",
+ "Close Modal Dialog": "Close Modal Dialog",
+ "Modal Window": "Modal Window",
+ "This is a modal window": "This is a modal window",
+ "This modal can be closed by pressing the Escape key or activating the close button.": "This modal can be closed by pressing the Escape key or activating the close button.",
+ ", opens captions settings dialog": ", opens captions settings dialog",
+ ", opens subtitles settings dialog": ", opens subtitles settings dialog",
+ ", opens descriptions settings dialog": ", opens descriptions settings dialog",
+ ", selected": ", selected",
+ "captions settings": "captions settings",
+ "subtitles settings": "subititles settings",
+ "descriptions settings": "descriptions settings",
+ "Text": "Text",
+ "White": "White",
+ "Black": "Black",
+ "Red": "Red",
+ "Green": "Green",
+ "Blue": "Blue",
+ "Yellow": "Yellow",
+ "Magenta": "Magenta",
+ "Cyan": "Cyan",
+ "Background": "Background",
+ "Window": "Window",
+ "Transparent": "Transparent",
+ "Semi-Transparent": "Semi-Transparent",
+ "Opaque": "Opaque",
+ "Font Size": "Font Size",
+ "Text Edge Style": "Text Edge Style",
+ "None": "None",
+ "Raised": "Raised",
+ "Depressed": "Depressed",
+ "Uniform": "Uniform",
+ "Dropshadow": "Dropshadow",
+ "Font Family": "Font Family",
+ "Proportional Sans-Serif": "Proportional Sans-Serif",
+ "Monospace Sans-Serif": "Monospace Sans-Serif",
+ "Proportional Serif": "Proportional Serif",
+ "Monospace Serif": "Monospace Serif",
+ "Casual": "Casual",
+ "Script": "Script",
+ "Small Caps": "Small Caps",
+ "Reset": "Reset",
+ "restore all settings to the default values": "restore all settings to the default values",
+ "Done": "Done",
+ "Caption Settings Dialog": "Caption Settings Dialog",
+ "Beginning of dialog window. Escape will cancel and close the window.": "Beginning of dialog window. Escape will cancel and close the window.",
+ "End of dialog window.": "End of dialog window."
+});
+
+    });
+});;
+require(["theme_adaptable/bsoptions"], function(amd) { amd.init(true); });;
+function legacy_activity_onclick_handler_1(e) { e.halt(); window.open('https://moodle.itb.ie/mod/url/view.php?id=163175&redirect=1', '', 'width=620,height=450,toolbar=no,location=no,menubar=no,copyhistory=no,status=no,directories=no,scrollbars=yes,resizable=yes'); return false; };
+function legacy_activity_onclick_handler_2(e) { e.halt(); window.open('https://moodle.itb.ie/mod/resource/view.php?id=163164&redirect=1', '', 'width=900,height=700,toolbar=no,location=no,menubar=no,copyhistory=no,status=no,directories=no,scrollbars=yes,resizable=yes'); return false; };
+function legacy_activity_onclick_handler_3(e) { e.halt(); window.open('https://moodle.itb.ie/mod/url/view.php?id=163168&redirect=1', '', 'width=620,height=450,toolbar=no,location=no,menubar=no,copyhistory=no,status=no,directories=no,scrollbars=yes,resizable=yes'); return false; };
+function legacy_activity_onclick_handler_4(e) { e.halt(); window.open('https://moodle.itb.ie/mod/url/view.php?id=163170&redirect=1', '', 'width=620,height=450,toolbar=no,location=no,menubar=no,copyhistory=no,status=no,directories=no,scrollbars=yes,resizable=yes'); return false; };
+function legacy_activity_onclick_handler_5(e) { e.halt(); window.open('https://moodle.itb.ie/mod/resource/view.php?id=163167&redirect=1', '', 'width=900,height=700,toolbar=no,location=no,menubar=no,copyhistory=no,status=no,directories=no,scrollbars=yes,resizable=yes'); return false; };
+require(["block_settings/settingsblock"], function(amd) { amd.init("5", null); });;
+
+    require(['core/yui'], function(Y) {
+            Y.on('click', legacy_activity_onclick_handler_1, '#label_5_29', null);
+    });
+;
+
+    require(['core/yui'], function(Y) {
+            Y.on('click', legacy_activity_onclick_handler_2, '#label_5_30', null);
+    });
+;
+
+    require(['core/yui'], function(Y) {
+            Y.on('click', legacy_activity_onclick_handler_3, '#label_5_32', null);
+    });
+;
+
+    require(['core/yui'], function(Y) {
+            Y.on('click', legacy_activity_onclick_handler_4, '#label_5_33', null);
+    });
+;
+
+    require(['core/yui'], function(Y) {
+            Y.on('click', legacy_activity_onclick_handler_5, '#label_5_34', null);
+    });
+;
+require(["block_navigation/navblock"], function(amd) { amd.init("15486"); });;
+
+require(['core/yui'], function(Y) {
+    M.util.init_skiplink(Y);
+});
+;
+
+require(['jquery', 'message_popup/notification_popover_controller'], function($, controller) {
+    var container = $('#nav-notification-popover-container');
+    var controller = new controller(container);
+    controller.registerEventListeners();
+    controller.registerListNavigationEventListeners();
+});
+;
+require(["core/log"], function(amd) { amd.setConfig({"level":"warn"}); });
+});
+//]]>
+</script>
+<script type="text/javascript" src="./MIOT H6011 - Part Time_ Configuring the USART_files/javascript(3).php"></script>
+<script type="text/javascript">
+//<![CDATA[
+M.str = {"moodle":{"lastmodified":"Last modified","name":"Name","error":"Error","info":"Information","yes":"Yes","no":"No","viewallcourses":"View all courses","cancel":"Cancel","confirm":"Confirm","areyousure":"Are you sure?","closebuttontitle":"Close","unknownerror":"Unknown error"},"repository":{"type":"Type","size":"Size","invalidjson":"Invalid JSON string","nofilesattached":"No files attached","filepicker":"File picker","logout":"Logout","nofilesavailable":"No files available","norepositoriesavailable":"Sorry, none of your current repositories can return files in the required format.","fileexistsdialogheader":"File exists","fileexistsdialog_editor":"A file with that name has already been attached to the text you are editing.","fileexistsdialog_filemanager":"A file with that name has already been attached","renameto":"Rename to \"{$a}\"","referencesexist":"There are {$a} alias\/shortcut files that use this file as their source","select":"Select"},"admin":{"confirmdeletecomments":"You are about to delete comments, are you sure?","confirmation":"Confirmation"}};
+//]]>
+</script>
+<script type="text/javascript">
+//<![CDATA[
+(function() {Y.use("moodle-filter_mathjaxloader-loader",function() {M.filter_mathjaxloader.configure({"mathjaxconfig":"\nMathJax.Hub.Config({\n    config: [\"Accessible.js\", \"Safe.js\"],\n    errorSettings: { message: [\"!\"] },\n    skipStartupTypeset: true,\n    messageStyle: \"none\"\n});\n","lang":"en"});
+});
+M.util.help_popups.setup(Y);
+ M.util.js_pending('random5c4204339825224'); Y.on('domready', function() { M.util.js_complete("init");  M.util.js_complete('random5c4204339825224'); });
+})();
+//]]>
+</script>
+
+</div>
+
+
+</body></html>

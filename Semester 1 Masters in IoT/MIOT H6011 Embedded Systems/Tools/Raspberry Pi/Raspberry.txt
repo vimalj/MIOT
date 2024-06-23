@@ -1,0 +1,45 @@
+https://www.raspberrypi.org/
+
+
+Etcher - an SD card flasher----
+https://www.balena.io/etcher/
+
+
+How to do a "Headless" Raspberry Pi setup (no monitor, keyboard or cable required). URL---
+https://howtoraspberrypi.com/how-to-raspberry-pi-headless-setup/
+
+
+GPIO pinout
+https://www.raspberrypi.org/documentation/usage/gpio/
+
+Angry IP Scanner
+https://angryip.org/
+
+VNC on Raspberry Pi--
+https://www.raspberrypi.org/documentation/remote-access/vnc/
+
+
+https://cookbook.nodered.org/http/
+
+
+
+
+Command to enable node-RED to automatically start on Pi boot:
+
+sudo systemctl enable nodered.service
+
+
+
+
+
+
+Serving Data from another flow to a http flow
+
+https://cookbook.nodered.org/http/include-data-from-another-flow
+
+
+
+
+https://mobaxterm.mobatek.net/
+A replacement tool for Putty and CoolTerm (Windows) URL
+This tool offers SSH, Serial, Commandline and VNC client all in one. (Windows only)

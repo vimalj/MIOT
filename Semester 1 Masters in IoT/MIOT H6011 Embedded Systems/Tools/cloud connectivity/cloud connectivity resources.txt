@@ -1,0 +1,22 @@
+node red in 5 mins---
+https://moodle.itb.ie/mod/url/view.php?id=143218
+
+https://nodered.org/
+
+
+https://www.ibm.com/cloud/
+https://onthehub.com/search#
+
+https://www.sigfox.com/en
+
+https://backend.sigfox.com/auth/login
+
+
+
+https://quickstart.internetofthings.ibmcloud.com/#/
+
+
+https://console.bluemix.net/docs/services/IoT/iotplatform_overview.html#about_iotplatform
+
+
+https://www.w3schools.com/js/js_json_syntax.asp

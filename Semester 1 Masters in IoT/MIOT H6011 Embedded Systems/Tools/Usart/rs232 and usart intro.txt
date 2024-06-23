@@ -1,0 +1,5 @@
+https://learn.sparkfun.com/tutorials/serial-communication/serial-intro
+
+
+coolterm
+http://freeware.the-meiers.org/

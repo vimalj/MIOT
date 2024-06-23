@@ -1,0 +1,5 @@
+Organization ID    rh924l
+Device Type        Nodemcu
+Device ID          ESP8266
+Authentication Method   use-token-auth
+Authentication Token    iV&emwL@t-iFu3pz+)

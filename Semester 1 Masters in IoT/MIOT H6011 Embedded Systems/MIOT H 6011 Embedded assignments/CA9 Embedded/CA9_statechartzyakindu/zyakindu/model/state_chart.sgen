@@ -1,0 +1,11 @@
+GeneratorModel for yakindu::c {
+
+	statechart state_chart {
+
+		feature Outlet {
+			targetProject = "zyakindu"
+			targetFolder = "src-gen"
+			libraryTargetFolder = "src"
+		}
+	}
+}

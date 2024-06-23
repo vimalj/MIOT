@@ -1,0 +1,35 @@
+/*
+ * main.c
+ *
+ *  Created on: 17 Sep 2015
+ *      Author: benjie
+ */
+
+#include <avr/io.h>
+#include <util/delay.h>
+
+#include "usart.h"
+
+
+int main(void)
+{
+	usartInit();
+
+	//setup code goes here
+	DDRB |= (1<<5);
+
+	while(1)
+	{
+		//loop code goes here
+		PORTB |= (1<<5);
+		usartSendChar('a');
+
+		_delay_ms(500);
+
+		PORTB &= ~(1<<5);
+		usartSendChar('b');
+
+		_delay_ms(500);
+	}
+
+}

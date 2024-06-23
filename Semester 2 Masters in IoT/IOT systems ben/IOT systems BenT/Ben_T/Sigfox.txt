@@ -1,0 +1,39 @@
+login email pm@3
+
+
+sigfox
+semtec
+
+chirp
+spread spectrum
+
+LoRa
+NB IoT SG - rolled out
+
+|Wireless:
+
+Industrial scientific medical - ISM
+433MHZ
+868 MHZ region1 eu
+
+912 MHZ region2 us
+
+700MHZ  ch
+
+
+
+sigfox 868MHz frequency channel we will use
+
+
+avr---->wireless----------->SFbase-------->SF cloud------data-------> my cloud
+Rs232 uart
+tx
+rx
+
+
+
+1%duty cycle
+140 messages per day
+12 bytes max
+
+old-AT commands. audio signals by phone through modem.

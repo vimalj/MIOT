@@ -1,0 +1,1 @@
+https://temperature-app2.eu-gb.mybluemix.net/temp

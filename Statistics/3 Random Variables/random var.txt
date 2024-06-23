@@ -1,0 +1,6 @@
+
+ 9. Discrete Random Variables URL
+ 10. Expected Values URL
+ 11. Continuous Random Variables URL
+ 12. The Exponential Distribution URL
+ 13. The Normal Distribution

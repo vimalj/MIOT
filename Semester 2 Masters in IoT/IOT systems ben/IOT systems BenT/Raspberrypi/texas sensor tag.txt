@@ -1,0 +1,72 @@
+install linux dependencies
+
+jool kernel model driver is required
+
+modprobe jool
+
+rapberry pi modprobe jool
+
+ip-nbr
+
+ip-addr
+
+ping fd00::1   //ping yourself
+
+
+
+
+replace ipaddress of your ibmwatson
+
+
+
+jool bib display
+jool bib add <ipaddress of your router/chrome>#80 192.168.43.212#64000
+jool bib display    //for static tcp
+
+
+
+clone contiking repo
+clone brouter
+flash raspi
+
+192.168.43.212:64000   //chrome stag1 similar for on port 64001
+
+
+
+
+
+
+
+
+
+sudo ./border-router.native fd00::1/64 -s /dev/ttyACM0
+
+modprobe jool
+
+jool instance add --netfilter --pool6 64:ff9b::/96
+
+
+jool bib add fd00::212:4b00:f83:5587#80 192.168.43.240#64000
+
+jool bib add fd00::212:4b00:f83:5587#80 192.168.0.206#64000
+192.168.0.206
+
+
+
+Organization ID
+rh924l
+Device Type
+cc26xx-web-demo
+Device ID
+00124b050808
+Authentication Method
+use-token-auth
+Authentication Token
+a3A!ASU6vmDkYGc?Ry
+
+
+
+
+
+https://temperature-app2.eu-gb.mybluemix.net/red/
+

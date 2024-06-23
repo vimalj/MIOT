@@ -1,0 +1,73 @@
+/*
+ * main.c
+ *
+ *  Created on: 17 Sep 2015
+ *      Author: benjie
+ */
+
+#include <avr/io.h>
+#include <util/delay.h>
+#include "usart.h"
+#include "dbg_putchar.h"
+#include <stdio.h>
+
+void snocCmd(char cmdStr[]);
+
+int main(void)
+{
+	char myTempStr[20];
+	uint8_t myTemp = 25;
+
+	usartInit();
+	dbg_tx_init();
+
+	//Give module time to boot
+	_delay_ms(1000);
+
+	snocCmd("AT\n");
+	snocCmd("AT\n");
+	snocCmd("AT\n");
+
+	sprintf(myTempStr, "AT$SF=%d\n", myTemp);
+
+	snocCmd(myTempStr);
+
+	while(1)
+	{
+		_delay_ms(1000);
+	}
+}
+
+
+void snocCmd(char cmdStr[])
+{
+	char rxStr[20];
+	uint8_t rxIndex = 0;
+	uint8_t newLineReceived = 0;
+
+	dbg_putStr(cmdStr);			//Command to SNOC
+	usartSendString(cmdStr);	//echo command to PC
+
+	while(!newLineReceived)
+	{
+		while(!usartCharReceived())
+		{
+		}
+
+		//Char has been received!
+		rxStr[rxIndex] = usartReadChar();
+
+		if(rxStr[rxIndex] == '\n')
+		{
+			newLineReceived = 1;
+			rxStr[rxIndex] = '\0';
+		}
+		else
+		{
+			rxIndex++;
+		}
+	}
+
+	//echo received string to PC
+	usartSendString(rxStr);
+}

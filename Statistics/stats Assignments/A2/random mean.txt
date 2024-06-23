@@ -1,0 +1,71 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include <math.h>
+#define MAXSAMPLES 10000
+void main()
+{
+     // Use current time as seed for random generator 
+    srand(time(0)); 
+    
+    float x[MAXSAMPLES];
+    int  i, n;
+    float sample_mean, sample_variance, sample_std_deviation, sum = 0, sum1 = 0;
+ 
+    printf("Enter the value of N \n");
+    scanf("%d", &n);
+
+    printf("Random %d real numbers between 1 to 200 \n", n);
+    for (i = 0; i < n; i++)
+    {
+        x[i] = rand() % 100 + 1;
+        printf("%f\n", x[i]);
+    }
+
+    /*  Compute the sum of all elements */
+    for (i = 0; i < n; i++)
+    {
+        sum = sum + x[i];
+    }
+    sample_mean = sum / (float)n;
+    
+    /*  Compute  variance  and standard deviation  */
+    for (i = 0; i < n; i++)
+    {
+        sum1 = sum1 + pow((x[i] - sample_mean), 2);
+    }
+    sample_variance = sum1 / ((float)n-1);
+    sample_std_deviation = sqrt(sample_variance);
+    
+    
+    
+    printf("Mean of all elements = %.2f\n", sample_mean);
+    printf("Sample variance of all elements = %.2f\n", sample_variance);
+    printf("Sample Standard deviation = %.2f\n", sample_std_deviation);
+
+int alpha;
+ printf("for level of significance 0.05 type 95 or for 0.01 type 99=");
+ scanf("%d", &alpha);
+
+
+ float CIL, CIU;
+ 
+ if (alpha==95) {
+ CIL = sample_mean -  ((1.96*sample_std_deviation)/sqrt(n));
+    
+ CIU = sample_mean + ((1.96*sample_std_deviation)/sqrt(n));
+ 
+ printf("C.I. Lower = %.2f\n", CIL);
+ printf("C.I.Upper = %.2f\n", CIU);}
+
+ 
+  else if (alpha==99) {
+ CIL = sample_mean -  ((2.58*sample_std_deviation)/sqrt(n));
+    
+ CIU = sample_mean + ((2.58*sample_std_deviation)/sqrt(n));
+ 
+ printf("C.I. Lower = %.2f\n", CIL);
+ printf("C.I.Upper = %.2f\n", CIU);}
+ 
+ else printf("****alpha value entered is invalid****");
+
+}

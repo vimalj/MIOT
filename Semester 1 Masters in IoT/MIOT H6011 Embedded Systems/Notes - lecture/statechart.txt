@@ -1,0 +1,19 @@
+
+
+
+statechart lightswitch example-------
+
+https://www.itemis.com/en/yakindu/state-machine/documentation/examples/
+
+
+Installing Yakindu Statechart Tools (only if you don't have already)
+In eclipse:
+
+Help->Install New Software
+Click "Add..."
+Type in "Yakindu" for the "Name:" (It can be anything you like here)
+For "Location:" type in "https://updates.yakindu.com/statecharts/releases/"
+Wait for list to refresh
+Select "YAKINDU Statechart Tools Standard Edition"
+Just go with all the defaults
+Eclipse will reboot and you should now be able to import the "statechart_do_not_modify_template" project and edit the statechart etc.

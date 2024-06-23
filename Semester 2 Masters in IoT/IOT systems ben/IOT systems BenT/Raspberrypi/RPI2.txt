@@ -1,0 +1,16 @@
+ftdi usb to ttl convert serial cable. 3.3v
+baudrate coolterm 115200 
+
+sudo shutdown now
+
+linux has several partitions on sdcard.
+boot is one.
+
+gs----raspberry pi config.txt
+
+enable_uart=1		(add it to end of config.txt)
+#symbol represents comments linux sys root
+
+cd /etc/wpa_supplicant/
+
+sudo nano wpa_supplicant.conf

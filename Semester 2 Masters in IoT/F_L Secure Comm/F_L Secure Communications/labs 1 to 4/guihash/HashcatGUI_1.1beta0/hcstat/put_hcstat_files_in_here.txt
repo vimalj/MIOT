@@ -1,0 +1,9 @@
+Putting them in this directory will keep the separate and organised.
+
+I've included one I have created which seems does a little better than the standard hcstat file.
+
+Have fun :)
+
+blandyuk
+www.md5decrypter.co.uk
+

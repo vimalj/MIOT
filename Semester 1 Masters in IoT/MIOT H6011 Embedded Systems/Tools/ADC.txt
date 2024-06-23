@@ -1,0 +1,72 @@
+
+Linker Option required to enable sprintf using floats/doubles
+
+-Wl,-u,vfprintf -lprintf_flt -lm
+
+
+
+/*
+ * main.c
+ *
+ *  Created on: 17 Sep 2015
+ *      Author: benjie
+ */
+
+#include <avr/io.h>
+#include <util/delay.h>
+
+#include "usart.h"
+
+#include <stdio.h>
+
+int main(void)
+{
+	uint8_t adcResult;
+
+	char buffer[5];
+
+	//Make ADC5 an input pin
+	DDRC &= ~(1<<5);
+
+	//Connect channel 5 to ADC (AD5 pin)
+	ADMUX |= ((1<<MUX2) | (1<<MUX0));
+
+	//use AVcc as ref voltage
+	ADMUX |= (1<<REFS0);
+
+	// Uncomment next line if you only want an 8 bit result
+	//ADMUX |= (1<<ADLAR);
+
+	//128 prescale = 125kHz ADC clock
+	ADCSRA |= ((1<<ADPS0) | (1<<ADPS1) | (1<<ADPS2));
+
+	//switch on ADC
+	ADCSRA |= (1<<ADEN);
+
+	//setup usart
+	usartInit();
+
+	while(1)
+	{
+		//start conversion
+		ADCSRA |= (1<<ADSC);
+
+		//wait for ADC to complete
+		//wait until ADSC bit goes low
+		while(ADCSRA & (1<<ADSC))
+		{
+
+		}
+
+		//ADC is complete - grab result...
+		adcResult = ADC;  //replce with ADCH if only using 8-bit result
+
+		sprintf(buffer, "%i", adcResult);
+
+		usartSendString(buffer);
+		usartSendChar('\n');
+
+		_delay_ms(1000);
+	}
+
+}
